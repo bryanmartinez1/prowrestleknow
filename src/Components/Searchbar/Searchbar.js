@@ -12,7 +12,7 @@ export default function Searchbar({ setSearch }) {
 
   return (
     <div className="Searchbar">
-      <img className="searchIMG" src={search_icon} />
+      <img className="searchIMG" src={search_icon} alt="Search"/>
       <input
         className="searchInput"
         onKeyDown={(key) => newSearch(key)}

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Chart.css";
 import SearchSelect from "../../Components/SearchSelect/SearchSelect";
-import { Bar } from "react-chartjs-2";
+import { Bar, Pie, Doughnut, Scatter } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,6 +10,11 @@ import {
   Title,
   Tooltip,
   Legend,
+  PointElement,
+  LineElement,
+  RadialLinearScale,
+  Filler,
+  ArcElement,
 } from "chart.js";
 import Multiselect from "multiselect-react-dropdown";
 
@@ -19,38 +24,58 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  PointElement,
+  LineElement,
+  RadialLinearScale,
+  Filler,
+  ArcElement
 );
 
 export default function Chart() {
-  const [chartSelect, setChartSelect] = useState("wrestler");
+  const [chartSelect, setChartSelect] = useState("bar");
+  const [chartTitle, setChartTitle] = useState("");
+  const [xLabel, setXLabel] = useState("");
+  const [yLabel, setYLabel] = useState("");
   const [colors, setSelectedColors] = useState([
     "red",
     "blue",
-    "gold",
-    "lightgreen",
+    "yellow",
+    "green",
     "purple",
     "orange",
+    "pink",
+    "black",
+    "white",
+    "brown",
+    "gray",
   ]);
-  const [chart, setChart] = useState("bar");
+  const [chart, setChart] = useState(["bar"]);
   const backgroundColors = [
     "red",
     "blue",
-    "gold",
-    "lightgreen",
+    "yellow",
+    "green",
     "purple",
     "orange",
+    "pink",
+    "black",
+    "white",
+    "brown",
+    "gray",
   ];
 
-  const charts = ["bar", "pie", "doughnut", "polar area", "radar", "scatter"];
+  const charts = ["bar", "pie", "doughnut", "scatter"];
 
   const data = {
-    labels: [],
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
         label: "# of Votes",
-        data: [],
+        data: [12, 19, 3, 5, 2, 3, 7],
         backgroundColor: colors,
+        borderColor: ["black"],
+        borderWidth: 1,
       },
     ],
   };
@@ -63,12 +88,22 @@ export default function Chart() {
       },
       title: {
         display: true,
-        text: chartSelect,
+        text: chartTitle,
       },
     },
     scales: {
+      x: {
+        title: {
+          display: true,
+          text: xLabel,
+        },
+      },
       y: {
         beginAtZero: true,
+        title: {
+          display: true,
+          text: yLabel,
+        },
       },
     },
   };
@@ -95,18 +130,54 @@ export default function Chart() {
     },
   };
 
+  const renderChart = () => {
+    switch (chartSelect) {
+      case "pie":
+        return <Pie data={data} options={options} />;
+      case "doughnut":
+        return <Doughnut data={data} options={options} />;
+      case "scatter":
+        return <Scatter data={data} options={options} />;
+      case "bar":
+      default:
+        return <Bar data={data} options={options} />;
+    }
+  };
+
   return (
     <div className="chart">
       <SearchSelect setSelect={setChartSelect} selected={chartSelect} />
+      <input
+        className="chartTitleInput"
+        placeholder="Input Chart Title"
+        type="text"
+        onChange={(event) => setChartTitle(event.target.value)}
+      />
+      <div className="labelsDiv">
+        <input
+          className="labelInput"
+          placeholder="Input X Label"
+          type="text"
+          onChange={(event) => setXLabel(event.target.value)}
+        />
+        <input
+          className="labelInput"
+          placeholder="Input Y Label"
+          type="text"
+          onChange={(event) => setYLabel(event.target.value)}
+        />
+      </div>
       <div className="multiSelectHolder">
         <Multiselect
           placeholder="Select Chart"
           isObject={false}
           onRemove={(event) => {
             setChart(event);
+            setChartSelect(event[0]);
           }}
           onSelect={(event) => {
             setChart(event);
+            setChartSelect(event[0]);
           }}
           options={charts}
           selectedValues={chart}
@@ -131,8 +202,7 @@ export default function Chart() {
           style={multiSelectStyle}
         />
       </div>
-
-      <Bar data={data} options={options} />
+      <div className="chartDiv">{renderChart()}</div>
     </div>
   );
 }
