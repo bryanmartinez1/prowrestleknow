@@ -1,0 +1,27 @@
+.SearchSelect {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #E5E5E5;
+}
+
+.selectButton {
+    padding: 5px;
+    background-color: transparent;
+    border: 0;
+    font-family:Lexend;
+    cursor: pointer;
+    font-size: 1.5rem;
+    width: 175px;
+}
+
+.selectButton:hover {
+    background-color: #EE534F;
+    font-weight: bold;
+}
+
+.selectedOption {
+    background-color: #EE534F;
+}

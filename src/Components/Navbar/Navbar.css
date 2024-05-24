@@ -1,0 +1,32 @@
+@font-face {
+    font-family: Lexend;
+    src:url(/src/Font/LexendGiga-VariableFont_wght.ttf);
+}
+
+.navBar {
+    width: 100%;
+    background-color: #EE534F;
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.homeTitle {
+    width: fit-content;
+    cursor: pointer;
+    padding: 0;
+    border: 0;
+    font-size: 2.5rem;
+    background-color: transparent;
+    font-weight: bold;
+    font-family: Lexend;
+}
+.content {
+    flex: 1;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Lexend;
+    src:url(/src/Font/LexendGiga-VariableFont_wght.ttf);
+}
+
+.Searchbar {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    background-color: #E5E5E5;
+    padding:5px;
+    font-family: Lexend;
+}
+
+.searchIMG {
+    height:40px;
+}
+
+.searchInput {
+    font-family: Lexend;
+    margin-left: 3px;
+    width: 100%;
+    font-size: 1rem;
+}
