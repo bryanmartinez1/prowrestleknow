@@ -34,9 +34,18 @@
 }
 
 .chartDiv {
+    display: flex;
+    flex-direction: column;
     box-sizing: border-box;
     width: 90%;
     height: 100%;
+}
+
+.chartDivHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
 }
 
 .labelsDiv {

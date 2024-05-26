@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import "./Chart.css";
 import SearchSelect from "../../Components/SearchSelect/SearchSelect";
+import downloadIMG from "../../Images/download.png";
+import IMGButton from "../../Components/IMGButton/IMGButton.js";
 import { Bar, Pie, Doughnut, Scatter } from "react-chartjs-2";
+import html2canvas from "html2canvas";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -33,7 +36,8 @@ ChartJS.register(
 );
 
 export default function Chart() {
-  const [chartSelect, setChartSelect] = useState("bar");
+  const [chartSelect, setChartSelect] = useState("wrestler");
+  const [chartType, setChartType] = useState("bar");
   const [chartTitle, setChartTitle] = useState("");
   const [xLabel, setXLabel] = useState("");
   const [yLabel, setYLabel] = useState("");
@@ -63,6 +67,16 @@ export default function Chart() {
     "white",
     "brown",
     "gray",
+    "lime",
+    "steelblue",
+    "deeppink",
+    "crimson",
+    "gold",
+    "salmon",
+    "tomato",
+    "tan",
+    "teal",
+    "lavender",
   ];
 
   const charts = ["bar", "pie", "doughnut", "scatter"];
@@ -89,23 +103,30 @@ export default function Chart() {
       title: {
         display: true,
         text: chartTitle,
+        font: {
+          size: 24,
+        },
+        color: "black",
       },
     },
-    scales: {
-      x: {
-        title: {
-          display: true,
-          text: xLabel,
-        },
-      },
-      y: {
-        beginAtZero: true,
-        title: {
-          display: true,
-          text: yLabel,
-        },
-      },
-    },
+    scales:
+      chartType === "bar" || chartSelect === "scatter"
+        ? {
+            x: {
+              title: {
+                display: true,
+                text: xLabel,
+              },
+            },
+            y: {
+              beginAtZero: true,
+              title: {
+                display: true,
+                text: yLabel,
+              },
+            },
+          }
+        : {},
   };
 
   const multiSelectStyle = {
@@ -130,8 +151,19 @@ export default function Chart() {
     },
   };
 
+  function takeShot() {
+    let div = document.getElementById("chart");
+    html2canvas(div).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = "chart.png";
+      link.click();
+    });
+  }
+
   const renderChart = () => {
-    switch (chartSelect) {
+    switch (chartType) {
       case "pie":
         return <Pie data={data} options={options} />;
       case "doughnut":
@@ -143,6 +175,7 @@ export default function Chart() {
         return <Bar data={data} options={options} />;
     }
   };
+  console.log(chartSelect);
 
   return (
     <div className="chart">
@@ -153,31 +186,37 @@ export default function Chart() {
         type="text"
         onChange={(event) => setChartTitle(event.target.value)}
       />
-      <div className="labelsDiv">
-        <input
-          className="labelInput"
-          placeholder="Input X Label"
-          type="text"
-          onChange={(event) => setXLabel(event.target.value)}
-        />
-        <input
-          className="labelInput"
-          placeholder="Input Y Label"
-          type="text"
-          onChange={(event) => setYLabel(event.target.value)}
-        />
-      </div>
+      {chartType === "bar" ||
+      chartType === "scatter" ||
+      chartType === undefined ? (
+        <div className="labelsDiv">
+          <input
+            className="labelInput"
+            placeholder="Input X Label"
+            type="text"
+            onChange={(event) => setXLabel(event.target.value)}
+          />
+          <input
+            className="labelInput"
+            placeholder="Input Y Label"
+            type="text"
+            onChange={(event) => setYLabel(event.target.value)}
+          />
+        </div>
+      ) : (
+        <></>
+      )}
       <div className="multiSelectHolder">
         <Multiselect
           placeholder="Select Chart"
           isObject={false}
           onRemove={(event) => {
             setChart(event);
-            setChartSelect(event[0]);
+            setChartType(event[0]);
           }}
           onSelect={(event) => {
             setChart(event);
-            setChartSelect(event[0]);
+            setChartType(event[0]);
           }}
           options={charts}
           selectedValues={chart}
@@ -201,8 +240,15 @@ export default function Chart() {
           hideSelectedList
           style={multiSelectStyle}
         />
+        <IMGButton
+          src={downloadIMG}
+          alt="Download"
+          imgFunction={() => takeShot()}
+        />
       </div>
-      <div className="chartDiv">{renderChart()}</div>
+      <div className="chartDiv" id="chart">
+        {renderChart()}
+      </div>
     </div>
   );
 }

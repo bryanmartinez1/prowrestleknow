@@ -5,6 +5,8 @@
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: #E5E5E5;
+    padding-top: 5px;
+    box-sizing: border-box;
 }
 
 .selectButton {

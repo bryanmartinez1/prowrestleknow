@@ -15,10 +15,26 @@ export default function Navbar() {
         ProWrestleKnow
       </button>
       <div className="content">
-        <IMGButton src={search} alt="Search" route="/search" />
-        <IMGButton src={compare} alt="Compare" route="/compare" />
-        <IMGButton src={chart} alt="Chart" route="/chart" />
-        <IMGButton src={controller} alt="Games" route="/games" />
+        <IMGButton
+          src={search}
+          alt="Search"
+          imgFunction={() => navigate("/search")}
+        />
+        <IMGButton
+          src={compare}
+          alt="Compare"
+          imgFunction={() => navigate("/compare")}
+        />
+        <IMGButton
+          src={chart}
+          alt="Chart"
+          imgFunction={() => navigate("/chart")}
+        />
+        <IMGButton
+          src={controller}
+          alt="Games"
+          imgFunction={() => navigate("/games")}
+        />
       </div>
     </div>
   );
