@@ -3,7 +3,7 @@ import "./Chart.css";
 import SearchSelect from "../../Components/SearchSelect/SearchSelect";
 import downloadIMG from "../../Images/download.png";
 import IMGButton from "../../Components/IMGButton/IMGButton.js";
-import { Bar, Pie, Doughnut, Scatter } from "react-chartjs-2";
+import { Bar, Pie, Doughnut, Scatter, Line } from "react-chartjs-2";
 import html2canvas from "html2canvas";
 import {
   Chart as ChartJS,
@@ -42,6 +42,8 @@ export default function Chart() {
   const [xLabel, setXLabel] = useState("");
   const [yLabel, setYLabel] = useState("");
   const [colors, setSelectedColors] = useState([
+    "black",
+    "white",
     "red",
     "blue",
     "yellow",
@@ -49,13 +51,14 @@ export default function Chart() {
     "purple",
     "orange",
     "pink",
-    "black",
-    "white",
     "brown",
     "gray",
   ]);
+  const [borderColor, setBorderColor] = useState(["black"]);
   const [chart, setChart] = useState(["bar"]);
   const backgroundColors = [
+    "black",
+    "white",
     "red",
     "blue",
     "yellow",
@@ -63,8 +66,6 @@ export default function Chart() {
     "purple",
     "orange",
     "pink",
-    "black",
-    "white",
     "brown",
     "gray",
     "lime",
@@ -79,7 +80,7 @@ export default function Chart() {
     "lavender",
   ];
 
-  const charts = ["bar", "pie", "doughnut", "scatter"];
+  const charts = ["bar", "pie", "doughnut", "scatter", "table", "line"];
 
   const data = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -88,13 +89,14 @@ export default function Chart() {
         label: "# of Votes",
         data: [12, 19, 3, 5, 2, 3, 7],
         backgroundColor: colors,
-        borderColor: ["black"],
-        borderWidth: 1,
+        borderColor: borderColor,
+        borderWidth: 3,
       },
     ],
   };
 
   const options = {
+    maintainAspectRatio: false,
     responsive: true,
     plugins: {
       legend: {
@@ -110,7 +112,7 @@ export default function Chart() {
       },
     },
     scales:
-      chartType === "bar" || chartSelect === "scatter"
+      chartType === "bar" || chartSelect === "scatter" || chartType === "line"
         ? {
             x: {
               title: {
@@ -165,87 +167,114 @@ export default function Chart() {
   const renderChart = () => {
     switch (chartType) {
       case "pie":
-        return <Pie data={data} options={options} />;
+        return <Pie data={data} options={options} width="100%" height="100%" />;
       case "doughnut":
         return <Doughnut data={data} options={options} />;
       case "scatter":
         return <Scatter data={data} options={options} />;
       case "bar":
-      default:
         return <Bar data={data} options={options} />;
+      case "line":
+        return <Line data={data} options={options} />;
+      case "table":
+        return <Pie data={data} options={options} />;
+      default:
+        return <>Select a Chart Type</>;
     }
   };
-  console.log(chartSelect);
+
+  // const renderOptions = () => {};
 
   return (
     <div className="chart">
       <SearchSelect setSelect={setChartSelect} selected={chartSelect} />
-      <input
-        className="chartTitleInput"
-        placeholder="Input Chart Title"
-        type="text"
-        onChange={(event) => setChartTitle(event.target.value)}
+      <Multiselect
+        placeholder="Select Chart"
+        isObject={false}
+        onRemove={(event) => {
+          setChart(event);
+          setChartType(event[0]);
+        }}
+        onSelect={(event) => {
+          setChart(event);
+          setChartType(event[0]);
+        }}
+        options={charts}
+        selectedValues={chart}
+        showCheckbox
+        hideSelectedList
+        style={multiSelectStyle}
+        selectionLimit={1}
       />
-      {chartType === "bar" ||
-      chartType === "scatter" ||
-      chartType === undefined ? (
-        <div className="labelsDiv">
+      <div className="chartInfo">
+        <div className="chartVariables">Stuff</div>
+        <div className="labelsColors">
           <input
-            className="labelInput"
-            placeholder="Input X Label"
+            className="chartTitleInput"
+            placeholder="Input Chart Title"
             type="text"
-            onChange={(event) => setXLabel(event.target.value)}
+            onChange={(event) => setChartTitle(event.target.value)}
           />
-          <input
-            className="labelInput"
-            placeholder="Input Y Label"
-            type="text"
-            onChange={(event) => setYLabel(event.target.value)}
-          />
+          {chartType === "bar" ||
+          chartType === "scatter" ||
+          chartType === "line" ? (
+            <div className="labelsDiv">
+              <input
+                className="labelInput"
+                placeholder="Input X Label"
+                type="text"
+                onChange={(event) => setXLabel(event.target.value)}
+              />
+              <input
+                className="labelInput"
+                placeholder="Input Y Label"
+                type="text"
+                onChange={(event) => setYLabel(event.target.value)}
+              />
+            </div>
+          ) : (
+            <></>
+          )}
+          <div className="multiSelectHolder">
+            <Multiselect
+              placeholder="Select Fill Colors"
+              isObject={false}
+              onRemove={(event) => {
+                setSelectedColors(event);
+              }}
+              onSelect={(event) => {
+                setSelectedColors(event);
+              }}
+              options={backgroundColors}
+              selectedValues={colors}
+              showCheckbox
+              hideSelectedList
+              style={multiSelectStyle}
+            />
+            <Multiselect
+              placeholder="Select Border Colors"
+              isObject={false}
+              onRemove={(event) => {
+                setBorderColor(event);
+              }}
+              onSelect={(event) => {
+                setBorderColor(event);
+              }}
+              options={backgroundColors}
+              selectedValues={borderColor}
+              showCheckbox
+              hideSelectedList
+              style={multiSelectStyle}
+            />
+            <IMGButton
+              src={downloadIMG}
+              alt="Download"
+              imgFunction={() => takeShot()}
+            />
+          </div>
         </div>
-      ) : (
-        <></>
-      )}
-      <div className="multiSelectHolder">
-        <Multiselect
-          placeholder="Select Chart"
-          isObject={false}
-          onRemove={(event) => {
-            setChart(event);
-            setChartType(event[0]);
-          }}
-          onSelect={(event) => {
-            setChart(event);
-            setChartType(event[0]);
-          }}
-          options={charts}
-          selectedValues={chart}
-          showCheckbox
-          hideSelectedList
-          style={multiSelectStyle}
-          selectionLimit={1}
-        />
-        <Multiselect
-          placeholder="Select Colors"
-          isObject={false}
-          onRemove={(event) => {
-            setSelectedColors(event);
-          }}
-          onSelect={(event) => {
-            setSelectedColors(event);
-          }}
-          options={backgroundColors}
-          selectedValues={colors}
-          showCheckbox
-          hideSelectedList
-          style={multiSelectStyle}
-        />
-        <IMGButton
-          src={downloadIMG}
-          alt="Download"
-          imgFunction={() => takeShot()}
-        />
       </div>
+
       <div className="chartDiv" id="chart">
         {renderChart()}
       </div>

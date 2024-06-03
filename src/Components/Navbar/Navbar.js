@@ -6,6 +6,7 @@ import search from "../../Images/search_icon.png";
 import controller from "../../Images/controller.png";
 import compare from "../../Images/compare.png";
 import chart from "../../Images/chart.png";
+import info from "../../Images/info.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -34,6 +35,11 @@ export default function Navbar() {
           src={controller}
           alt="Games"
           imgFunction={() => navigate("/games")}
+        />
+        <IMGButton
+          src={info}
+          alt="Information"
+          imgFunction={() => navigate("/information")}
         />
       </div>
     </div>

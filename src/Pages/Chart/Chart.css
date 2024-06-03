@@ -38,7 +38,7 @@
     flex-direction: column;
     box-sizing: border-box;
     width: 90%;
-    height: 100%;
+    flex:1;
 }
 
 .chartDivHeader {
@@ -54,4 +54,26 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+}
+
+.chartInfo {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: aqua;
+}
+
+.chartVariables {
+    flex: 1;
+    min-width: 300px;
+    background-color: aquamarine;
+}
+
+.labelsColors {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

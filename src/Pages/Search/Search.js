@@ -13,11 +13,9 @@ export default function Search() {
     <div className="search">
       <SearchSelect setSelect={setSelect} selected={select} />
       <Searchbar setSearch={setSearch} />
-      <div className="searching">
-        <p>Search: {search}</p>
-        <p>Search: {select}</p>
+      <div className="cardGrid">
+        <Card src={img} name="Bryan Martinez" />
       </div>
-      <Card src={img} name="Bryan Martinez" />
     </div>
   );
 }
