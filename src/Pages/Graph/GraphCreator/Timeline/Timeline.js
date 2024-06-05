@@ -1,14 +1,14 @@
 import React from "react";
-import "./Rating.css";
+import "./Timeline.css";
 
-export default function Rating({ data, options }) {
+export default function Timeline({ data, options }) {
   //  backgroundColor:  data.datasets.backgroundColor
   //  borderColor:      data.datasets.borderColor
 
   return (
-    <div className="RatingContainer">
+    <div className="TimelineContainer">
       <div>{options.plugins.title.text}</div>
-      <>Ratings</>
+      <>Timelines</>
     </div>
   );
 }

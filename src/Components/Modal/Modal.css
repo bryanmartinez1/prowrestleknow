@@ -15,7 +15,7 @@
 .Modal {
     background-color: white;
     width: 90%;
-    height: 30%;
+    height: 50%;
     box-sizing: border-box;
     padding: 5px;
     border-radius: 5px;
@@ -24,6 +24,7 @@
 
 .closeHeader {
     width: 100%;
+    height: 26px;
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -44,6 +45,12 @@
 .modalContent {
     box-sizing: border-box;
     width: 100%;
-    height: 100%;
+    height: calc(100% - 27px);
     overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.modalContent > :not(:first-child) {
+    margin-top: 10px;
 }

@@ -19,18 +19,10 @@
 
 .chartTitleInput {
     box-sizing: border-box;
-    margin-top: 10px;
     font-family: Lexend;
     font-size: 1.5rem;
-    width: 90%;
-}
-
-.labelInput {
+    width: 100%;
     box-sizing: border-box;
-    margin-top: 10px;
-    font-family: Lexend;
-    font-size: 1rem;
-    width: 40%;
 }
 
 .chartDiv {
@@ -39,45 +31,26 @@
     box-sizing: border-box;
     width: 90%;
     flex:1;
-}
-
-.chartDivHeader {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-}
-
-.labelsDiv {
     box-sizing: border-box;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-}
-
-.chartInfo {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-    background-color: aqua;
-}
-
-.chartVariables {
-    flex: 1;
-    min-width: 300px;
-    background-color: aquamarine;
-}
-
-.labelsColors {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .chartSelectDiv {
     width: 100%;
+    box-sizing: border-box;
+}
+
+.graphButtons {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.rowMultiSelect {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }

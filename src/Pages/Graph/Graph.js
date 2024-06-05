@@ -2,6 +2,8 @@ import React, { useCallback, useState } from "react";
 import "./Graph.css";
 import SearchSelect from "../../Components/SearchSelect/SearchSelect.js";
 import downloadIMG from "../../Images/download.png";
+import getDataIMG from "../../Images/get-data.png";
+import settingsIMG from "../../Images/settings.png";
 import IMGButton from "../../Components/IMGButton/IMGButton.js";
 import { Bar, Pie, Doughnut, Scatter, Line } from "react-chartjs-2";
 import html2canvas from "html2canvas";
@@ -22,6 +24,8 @@ import {
 import Multiselect from "multiselect-react-dropdown";
 import Table from "./GraphCreator/Table/Table.js";
 import Modal from "../../Components/Modal/Modal.js";
+import Timeline from "./GraphCreator/Timeline/Timeline.js";
+import Rating from "./GraphCreator/Rating/Rating.js";
 
 ChartJS.register(
   CategoryScale,
@@ -53,7 +57,7 @@ const graphSelectStyle = {
   inputField: {
     width: "90%",
     height: "35px",
-    color: "whitesmoke",
+    color: "black",
     fontSize: "20px",
     overflow: "hidden",
   },
@@ -61,21 +65,21 @@ const graphSelectStyle = {
 
 const multiSelectStyle = {
   multiselectContainer: {
-    width: "200px",
+    width: "100%",
     height: "50px",
     backgroundColor: "whitesmoke",
   },
   searchBox: {
-    width: "200px",
+    width: "100%",
     height: "50px",
   },
   optionContainer: {
     backgroundColor: "whitesmoke",
   },
   inputField: {
-    width: "190px",
+    width: "100%",
     height: "35px",
-    color: "whitesmoke",
+    color: "black",
     fontSize: "20px",
     overflow: "hidden",
   },
@@ -133,6 +137,8 @@ export default function Graph() {
     "Doughnut",
     "Scatter",
     "Line",
+    "Rating",
+    "Timeline",
   ];
 
   const data = {
@@ -214,26 +220,37 @@ export default function Graph() {
         return <Line data={data} options={options} />;
       case "Table":
         return <Table data={data} options={options} />;
+      case "Rating":
+        return <Rating data={data} options={options} />;
+      case "Timeline":
+        return <Timeline data={data} options={options} />;
       default:
         return <>Select a Chart Type</>;
     }
   };
 
-  const renderOptions = () => {};
+  const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
 
-  const [isModalOpen, setModalOpen] = useState(false);
-
-  const modalOpen = useCallback(() => {
-    setModalOpen(true);
+  const settingsModalOpen = useCallback(() => {
+    setSettingsModalOpen(true);
   }, []);
 
-  const modalClose = useCallback(() => {
-    setModalOpen(false);
+  const settingsModalClose = useCallback(() => {
+    setSettingsModalOpen(false);
+  }, []);
+
+  const [isDataModalOpen, setDataModalOpen] = useState(false);
+
+  const dataModalOpen = useCallback(() => {
+    setDataModalOpen(true);
+  }, []);
+
+  const dataModalClose = useCallback(() => {
+    setDataModalOpen(false);
   }, []);
 
   return (
     <div className="chart">
-      <SearchSelect setSelect={setChartSelect} selected={chartSelect} />
       <div className="chartSelectDiv">
         <Multiselect
           placeholder={chartType[0]}
@@ -252,17 +269,26 @@ export default function Graph() {
           selectionLimit={1}
         />
       </div>
-      <button onClick={modalOpen}>Open Modal</button>
-      <div className="chartInfo">
-        <div className="chartVariables">Stuff</div>
+      <div className="graphButtons">
+        <IMGButton
+          src={getDataIMG}
+          imgFunction={dataModalOpen}
+          alt="Chart Data"
+        />
+        <IMGButton
+          src={settingsIMG}
+          imgFunction={settingsModalOpen}
+          alt="Chart Settings"
+        />
+        <IMGButton src={downloadIMG} imgFunction={takeShot} alt="Download" />
       </div>
 
       <div className="chartDiv" id="chart">
         {renderChart()}
       </div>
-      {isModalOpen && (
+      {isSettingsModalOpen && (
         <Modal
-          closeModal={modalClose}
+          closeModal={settingsModalClose}
           content={
             <>
               <input
@@ -292,37 +318,48 @@ export default function Graph() {
               ) : (
                 <></>
               )}
-
-              <Multiselect
-                placeholder="Select Fill Colors"
-                isObject={false}
-                onRemove={(event) => {
-                  setSelectedColors(event);
-                }}
-                onSelect={(event) => {
-                  setSelectedColors(event);
-                }}
-                options={backgroundColors}
-                selectedValues={colors}
-                showCheckbox
-                hideSelectedList
-                style={multiSelectStyle}
-              />
-              <Multiselect
-                placeholder="Select Border Colors"
-                isObject={false}
-                onRemove={(event) => {
-                  setBorderColor(event);
-                }}
-                onSelect={(event) => {
-                  setBorderColor(event);
-                }}
-                options={backgroundColors}
-                selectedValues={borderColor}
-                showCheckbox
-                hideSelectedList
-                style={multiSelectStyle}
-              />
+              <div className="rowMultiSelect">
+                <Multiselect
+                  placeholder="Select Fill Colors"
+                  isObject={false}
+                  onRemove={(event) => {
+                    setSelectedColors(event);
+                  }}
+                  onSelect={(event) => {
+                    setSelectedColors(event);
+                  }}
+                  options={backgroundColors}
+                  selectedValues={colors}
+                  showCheckbox
+                  hideSelectedList
+                  style={multiSelectStyle}
+                />
+                <Multiselect
+                  placeholder="Select Border Colors"
+                  isObject={false}
+                  onRemove={(event) => {
+                    setBorderColor(event);
+                  }}
+                  onSelect={(event) => {
+                    setBorderColor(event);
+                  }}
+                  options={backgroundColors}
+                  selectedValues={borderColor}
+                  showCheckbox
+                  hideSelectedList
+                  style={multiSelectStyle}
+                />
+              </div>
+            </>
+          }
+        />
+      )}
+      {isDataModalOpen && (
+        <Modal
+          closeModal={dataModalClose}
+          content={
+            <>
+              <SearchSelect setSelect={setChartSelect} selected={chartSelect} />
             </>
           }
         />
