@@ -5,8 +5,9 @@ import IMGButton from "../IMGButton/IMGButton";
 import search from "../../Images/search_icon.png";
 import controller from "../../Images/controller.png";
 import compare from "../../Images/compare.png";
-import chart from "../../Images/chart.png";
+import graph from "../../Images/chart.png";
 import info from "../../Images/info.png";
+import imagine from "../../Images/create.png";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -27,14 +28,19 @@ export default function Navbar() {
           imgFunction={() => navigate("/compare")}
         />
         <IMGButton
-          src={chart}
-          alt="Chart"
-          imgFunction={() => navigate("/chart")}
+          src={graph}
+          alt="Graph"
+          imgFunction={() => navigate("/graph")}
         />
         <IMGButton
           src={controller}
           alt="Games"
           imgFunction={() => navigate("/games")}
+        />
+        <IMGButton
+          src={imagine}
+          alt="Imagine"
+          imgFunction={() => navigate("/imagine")}
         />
         <IMGButton
           src={info}

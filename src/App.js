@@ -6,8 +6,9 @@ import Home from "./Pages/Home/Home";
 import Search from "./Pages/Search/Search";
 import Games from "./Pages/Games/Games";
 import Compare from "./Pages/Compare/Compare";
-import Chart from "./Pages/Chart/Chart";
+import Graph from "./Pages/Graph/Graph";
 import Information from "./Pages/Information/Information";
+import Imagine from "./Pages/Imagine/Imagine";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search" element={<Search />} />
         <Route path="/compare" element={<Compare />} />
-        <Route path="/chart" element={<Chart />} />
+        <Route path="/graph" element={<Graph />} />
         <Route path="/games" element={<Games />} />
         <Route path="/information" element={<Information />} />
+        <Route path="/imagine" element={<Imagine />} />
       </Routes>
     </div>
   );

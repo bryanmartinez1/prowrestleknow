@@ -3,7 +3,6 @@ import "./Search.css";
 import Searchbar from "../../Components/Searchbar/Searchbar";
 import SearchSelect from "../../Components/SearchSelect/SearchSelect";
 import Card from "../../Components/Card/Card";
-import img from "../../Images/boston_crab.png";
 
 export default function Search() {
   const [search, setSearch] = useState("");
@@ -14,7 +13,7 @@ export default function Search() {
       <SearchSelect setSelect={setSelect} selected={select} />
       <Searchbar setSearch={setSearch} />
       <div className="cardGrid">
-        <Card src={img} name="Bryan Martinez" />
+        <Card name="Bryan Martinez" />
       </div>
     </div>
   );
