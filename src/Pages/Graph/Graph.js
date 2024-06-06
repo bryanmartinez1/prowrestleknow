@@ -294,6 +294,7 @@ export default function Graph() {
               <input
                 className="chartTitleInput"
                 placeholder="Input Chart Title"
+                value={chartTitle}
                 type="text"
                 onChange={(event) => setChartTitle(event.target.value)}
               />
@@ -306,11 +307,13 @@ export default function Graph() {
                     className="chartTitleInput"
                     placeholder="Input X Label"
                     type="text"
+                    value={xLabel}
                     onChange={(event) => setXLabel(event.target.value)}
                   />
                   <input
                     className="chartTitleInput"
                     placeholder="Input Y Label"
+                    value={yLabel}
                     type="text"
                     onChange={(event) => setYLabel(event.target.value)}
                   />
@@ -350,6 +353,7 @@ export default function Graph() {
                   style={multiSelectStyle}
                 />
               </div>
+              <div className="chartPreview">{renderChart()}</div>
             </>
           }
         />
@@ -360,6 +364,10 @@ export default function Graph() {
           content={
             <>
               <SearchSelect setSelect={setChartSelect} selected={chartSelect} />
+              <div className="dataContent">Info</div>
+              <div className="footerButons">
+                <button className="updateButton">Update</button>
+              </div>
             </>
           }
         />

@@ -54,3 +54,37 @@
     justify-content: space-around;
     flex-wrap: wrap;
 }
+
+.chartPreview {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    box-sizing: border-box;
+}
+
+.dataContent {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.footerButons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
+
+.updateButton {
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #0BDA51;
+    font-weight: bold;
+    border: none;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.updateButton:hover {
+    background-color: #3cf57b ;
+}
