@@ -1,0 +1,12 @@
+.rangeDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.rangeInput {
+    width: 50%;
+    text-align: end;
+    font-size: 20px;
+    font-family: Lexend;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Multiselect from "multiselect-react-dropdown";
+import html2canvas from "html2canvas";
 import "./Imagine.css";
 import StoryBoard from "./ImagineCreator/StoryBoard/StoryBoard";
 import IdeaWheel from "./ImagineCreator/IdeaWheel/IdeaWheel";
@@ -10,6 +11,10 @@ import StoryMap from "./ImagineCreator/StoryMap/StoryMap";
 import Steal from "./ImagineCreator/Steal/Steal";
 import Taxonomies from "./ImagineCreator/Taxonomies/Taxonomies";
 import Flowchart from "./ImagineCreator/Flowchart/Flowchart";
+import IMGButton from "../../Components/IMGButton/IMGButton";
+import downloadIMG from "../../Images/download.png";
+import getDataIMG from "../../Images/get-data.png";
+import settingsIMG from "../../Images/settings.png";
 
 const multiSelectStyle = {
   multiselectContainer: {
@@ -34,7 +39,7 @@ const multiSelectStyle = {
 };
 
 export default function Imagine() {
-  const [imagine, setImagine] = useState(["Story Board"]);
+  const [imagine, setImagine] = useState(["Concept Map"]);
   const imagineOptions = [
     "Concept Map",
     "Flow Chart",
@@ -46,6 +51,17 @@ export default function Imagine() {
     "Venn Diagram",
     "Story Board",
   ];
+
+  function takeShot() {
+    let div = document.getElementById("imagine");
+    html2canvas(div).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const link = document.createElement("a");
+      link.href = imgData;
+      link.download = "chart.png";
+      link.click();
+    });
+  }
 
   const renderImagine = () => {
     switch (imagine[0]) {
@@ -90,7 +106,23 @@ export default function Imagine() {
         style={multiSelectStyle}
         selectionLimit={1}
       />
-      <div className="">{renderImagine()}</div>
+      <div className="graphButtons">
+        <IMGButton
+          src={getDataIMG}
+          // imgFunction={dataModalOpen}
+          alt="Chart Data"
+        />
+        <IMGButton
+          src={settingsIMG}
+          // imgFunction={settingsModalOpen}
+          alt="Chart Settings"
+        />
+        <IMGButton src={downloadIMG} imgFunction={takeShot} alt="Download" />
+      </div>
+
+      <div className="" id="imagine">
+        {renderImagine()}
+      </div>
     </div>
   );
 }

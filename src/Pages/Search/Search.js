@@ -15,6 +15,7 @@ export default function Search() {
       <div className="cardGrid">
         <Card name="Bryan Martinez" />
       </div>
+      {search}
     </div>
   );
 }

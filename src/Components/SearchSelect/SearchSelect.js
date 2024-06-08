@@ -46,21 +46,13 @@ export default function SearchSelect({ setSelect, selected }) {
       </button>
       <button
         className={`selectButton ${
-          selected === "brand" ? "selectedOption" : ""
+          selected === "show" ? "selectedOption" : ""
         }`}
         onClick={() => {
-          setSelect("brand");
+          setSelect("show");
         }}
       >
-        Brand
-      </button>
-      <button
-        className={`selectButton ${selected === "ppv" ? "selectedOption" : ""}`}
-        onClick={() => {
-          setSelect("ppv");
-        }}
-      >
-        PPV
+        Show
       </button>
     </div>
   );

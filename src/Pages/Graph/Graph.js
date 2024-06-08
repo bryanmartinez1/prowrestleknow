@@ -26,6 +26,7 @@ import Table from "./GraphCreator/Table/Table.js";
 import Modal from "../../Components/Modal/Modal.js";
 import Timeline from "./GraphCreator/Timeline/Timeline.js";
 import Rating from "./GraphCreator/Rating/Rating.js";
+import DataGetter from "./DataGetter/DataGetter.js";
 
 ChartJS.register(
   CategoryScale,
@@ -364,7 +365,9 @@ export default function Graph() {
           content={
             <>
               <SearchSelect setSelect={setChartSelect} selected={chartSelect} />
-              <div className="dataContent">Info</div>
+              <div className="dataContent">
+                <DataGetter selector={chartSelect} />
+              </div>
               <div className="footerButons">
                 <button className="updateButton">Update</button>
               </div>
