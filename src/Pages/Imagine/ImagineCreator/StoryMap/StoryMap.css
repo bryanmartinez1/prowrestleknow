@@ -2,3 +2,14 @@
     display: flex;
     flex-direction: row;
 }
+
+.smTitle {
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.smAuthor {
+    text-align: center;
+    font-size: 15px;
+}
