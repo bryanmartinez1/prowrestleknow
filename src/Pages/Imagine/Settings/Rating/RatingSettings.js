@@ -4,7 +4,6 @@ import Rating from "../../ImagineCreator/Rating/Rating";
 export default function RatingSettings({ count, setCount, options, data }) {
   return (
     <>
-      {" "}
       <input
         type="number"
         min={1}

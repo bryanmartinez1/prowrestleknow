@@ -1,0 +1,14 @@
+.storyMapSettings{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.smTextArea {
+    font-family: Lexend;
+    resize: none;
+    flex:1;
+    height: 400px;
+    font-size: 15px;
+}

@@ -18,6 +18,7 @@ import settingsIMG from "../../Images/settings.png";
 import Rating from "./ImagineCreator/Rating/Rating";
 import Modal from "../../Components/Modal/Modal";
 import RatingSettings from "./Settings/Rating/RatingSettings";
+import StoryMapSettings from "./Settings/StoryMap/StoryMapSettings";
 
 const multiSelectStyle = {
   multiselectContainer: {
@@ -43,6 +44,7 @@ const multiSelectStyle = {
 
 export default function Imagine() {
   const [imagineTitle, setImagineTitle] = useState("");
+  const [imagineAuthor, setImagineAuthor] = useState("");
   const [imagine, setImagine] = useState(["Rating"]);
   const imagineOptions = [
     "Rating",
@@ -57,7 +59,7 @@ export default function Imagine() {
     "Story Board",
   ];
 
-  const [backgroundColor, setBackgroundColor] = useState(["black"]);
+  const [backgroundColor, setBackgroundColor] = useState(["gold"]);
   const [borderColor, setBorderColor] = useState(["black"]);
 
   const colors = [
@@ -114,15 +116,37 @@ export default function Imagine() {
       link.click();
     });
   }
-
+  // Ratings
   const [starCount, setStarCount] = useState(5);
+  // Story Map
+  const [smCharacters, setSMCharacters] = useState("");
+  const [smSettings, setSMSettings] = useState("");
+  const [smBeginning, setSMBeginning] = useState("");
+  const [smMiddle, setSMMiddle] = useState("");
+  const [smEnd, setSMEnd] = useState("");
+  const [smConflict, setSMConflict] = useState("");
+  const [smResolution, setSMResolution] = useState("");
+  const [smTheme, setSMTheme] = useState("");
 
   const data = {
-    starsCount: starCount,
+    ratings: {
+      starsCount: starCount,
+    },
+    storyMap: {
+      characters: smCharacters,
+      settings: smSettings,
+      beginning: smBeginning,
+      middle: smMiddle,
+      end: smEnd,
+      conflict: smConflict,
+      resolution: smResolution,
+      theme: smTheme,
+    },
   };
 
   const options = {
     title: imagineTitle,
+    author: imagineAuthor,
     backgroundColor: backgroundColor,
     borderColor: borderColor,
   };
@@ -130,32 +154,62 @@ export default function Imagine() {
   const renderImagine = () => {
     switch (imagine[0]) {
       case "Story Board":
-        return <StoryBoard />;
+        return <StoryBoard options={options} data={data} />;
       case "Idea Wheel":
-        return <IdeaWheel />;
+        return <IdeaWheel options={options} data={data} />;
       case "T-Chart":
-        return <TChart />;
+        return <TChart options={options} data={data} />;
       case "Venn Diagram":
-        return <VennDiagram />;
+        return <VennDiagram options={options} data={data} />;
       case "Concept Map":
-        return <ConceptMap />;
+        return <ConceptMap options={options} data={data} />;
       case "Story Map":
-        return <StoryMap />;
+        return <StoryMap options={options} data={data} />;
       case "Rating":
         return <Rating options={options} data={data} />;
       case "Steal":
-        return <Steal />;
+        return <Steal options={options} data={data} />;
       case "Taxonomies":
-        return <Taxonomies />;
+        return <Taxonomies options={options} data={data} />;
       case "Flow Chart":
-        return <Flowchart />;
+        return <Flowchart options={options} data={data} />;
       default:
         return <>Select a Imagine Type</>;
     }
   };
 
+  // const [smCharacters, setSMCharacters] = useState("");
+  // const [smSettings, setSMSettings] = useState("");
+  // const [smBeginning, setSMBeginning] = useState("");
+  // const [smMiddle, setSMMiddle] = useState("");
+  // const [smEnd, setSMEnd] = useState("");
+  // const [smConflict, setSMConflict] = useState("");
+  // const [smResolution, setSMResolution] = useState("");
+  // const [smTheme, setSMTheme] = useState("");
+
   const renderDataSettings = () => {
     switch (imagine[0]) {
+      case "Story Map":
+        return (
+          <StoryMapSettings
+            characters={smCharacters}
+            setCharacters={setSMCharacters}
+            setting={smSettings}
+            setSetting={setSMSettings}
+            beginning={smBeginning}
+            setBeginning={setSMBeginning}
+            middle={smMiddle}
+            setMiddle={setSMMiddle}
+            end={smEnd}
+            setEnd={setSMEnd}
+            conflict={smConflict}
+            setConflict={setSMConflict}
+            resolution={smResolution}
+            setResolution={setSMResolution}
+            theme={smTheme}
+            setTheme={setSMTheme}
+          />
+        );
       case "Rating":
         return (
           <RatingSettings
@@ -221,6 +275,13 @@ export default function Imagine() {
                 value={imagineTitle}
                 type="text"
                 onChange={(event) => setImagineTitle(event.target.value)}
+              />
+              <input
+                className="chartTitleInput"
+                placeholder="Input Imagine Author"
+                value={imagineAuthor}
+                type="text"
+                onChange={(event) => setImagineAuthor(event.target.value)}
               />
               <div className="rowMultiSelect">
                 <Multiselect

@@ -17,3 +17,8 @@
     flex-wrap: wrap;
     justify-content: center;
 }
+
+.author {
+    font-weight: normal;
+    font-size: 15px;
+}
