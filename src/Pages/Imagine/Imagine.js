@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import Multiselect from "multiselect-react-dropdown";
 import html2canvas from "html2canvas";
 import "./Imagine.css";
@@ -15,6 +15,9 @@ import IMGButton from "../../Components/IMGButton/IMGButton";
 import downloadIMG from "../../Images/download.png";
 import getDataIMG from "../../Images/get-data.png";
 import settingsIMG from "../../Images/settings.png";
+import Rating from "./ImagineCreator/Rating/Rating";
+import Modal from "../../Components/Modal/Modal";
+import RatingSettings from "./Settings/Rating/RatingSettings";
 
 const multiSelectStyle = {
   multiselectContainer: {
@@ -39,8 +42,10 @@ const multiSelectStyle = {
 };
 
 export default function Imagine() {
-  const [imagine, setImagine] = useState(["Concept Map"]);
+  const [imagineTitle, setImagineTitle] = useState("");
+  const [imagine, setImagine] = useState(["Rating"]);
   const imagineOptions = [
+    "Rating",
     "Concept Map",
     "Flow Chart",
     "Idea Wheel",
@@ -52,6 +57,53 @@ export default function Imagine() {
     "Story Board",
   ];
 
+  const [backgroundColor, setBackgroundColor] = useState(["black"]);
+  const [borderColor, setBorderColor] = useState(["black"]);
+
+  const colors = [
+    "black",
+    "white",
+    "red",
+    "blue",
+    "yellow",
+    "green",
+    "purple",
+    "orange",
+    "pink",
+    "brown",
+    "gray",
+    "lime",
+    "steelblue",
+    "deeppink",
+    "crimson",
+    "gold",
+    "salmon",
+    "tomato",
+    "tan",
+    "teal",
+    "lavender",
+  ];
+
+  //          SETTINGS
+  //            MODAL
+  const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
+  const settingsModalOpen = useCallback(() => {
+    setSettingsModalOpen(true);
+  }, []);
+  const settingsModalClose = useCallback(() => {
+    setSettingsModalOpen(false);
+  }, []);
+
+  //            DATA
+  //            MODAL
+  const [isDataModalOpen, setDataModalOpen] = useState(false);
+  const dataModalOpen = useCallback(() => {
+    setDataModalOpen(true);
+  }, []);
+  const dataModalClose = useCallback(() => {
+    setDataModalOpen(false);
+  }, []);
+
   function takeShot() {
     let div = document.getElementById("imagine");
     html2canvas(div).then((canvas) => {
@@ -62,6 +114,18 @@ export default function Imagine() {
       link.click();
     });
   }
+
+  const [starCount, setStarCount] = useState(5);
+
+  const data = {
+    starsCount: starCount,
+  };
+
+  const options = {
+    title: imagineTitle,
+    backgroundColor: backgroundColor,
+    borderColor: borderColor,
+  };
 
   const renderImagine = () => {
     switch (imagine[0]) {
@@ -77,12 +141,30 @@ export default function Imagine() {
         return <ConceptMap />;
       case "Story Map":
         return <StoryMap />;
+      case "Rating":
+        return <Rating options={options} data={data} />;
       case "Steal":
         return <Steal />;
       case "Taxonomies":
         return <Taxonomies />;
       case "Flow Chart":
         return <Flowchart />;
+      default:
+        return <>Select a Imagine Type</>;
+    }
+  };
+
+  const renderDataSettings = () => {
+    switch (imagine[0]) {
+      case "Rating":
+        return (
+          <RatingSettings
+            count={starCount}
+            setCount={setStarCount}
+            options={options}
+            data={data}
+          />
+        );
       default:
         return <>Select a Imagine Type</>;
     }
@@ -109,20 +191,74 @@ export default function Imagine() {
       <div className="graphButtons">
         <IMGButton
           src={getDataIMG}
-          // imgFunction={dataModalOpen}
+          imgFunction={dataModalOpen}
           alt="Chart Data"
         />
         <IMGButton
           src={settingsIMG}
-          // imgFunction={settingsModalOpen}
+          imgFunction={settingsModalOpen}
           alt="Chart Settings"
         />
         <IMGButton src={downloadIMG} imgFunction={takeShot} alt="Download" />
       </div>
-
       <div className="" id="imagine">
         {renderImagine()}
       </div>
+      {isDataModalOpen && (
+        <Modal
+          closeModal={dataModalClose}
+          content={<>{renderDataSettings()}</>}
+        />
+      )}
+      {isSettingsModalOpen && (
+        <Modal
+          closeModal={settingsModalClose}
+          content={
+            <>
+              <input
+                className="chartTitleInput"
+                placeholder="Input Imagine Title"
+                value={imagineTitle}
+                type="text"
+                onChange={(event) => setImagineTitle(event.target.value)}
+              />
+              <div className="rowMultiSelect">
+                <Multiselect
+                  placeholder="Select Fill Colors"
+                  isObject={false}
+                  onRemove={(event) => {
+                    setBackgroundColor(event);
+                  }}
+                  onSelect={(event) => {
+                    setBackgroundColor(event);
+                  }}
+                  options={colors}
+                  selectedValues={backgroundColor}
+                  showCheckbox
+                  hideSelectedList
+                  style={multiSelectStyle}
+                />
+                <Multiselect
+                  placeholder="Select Border Colors"
+                  isObject={false}
+                  onRemove={(event) => {
+                    setBorderColor(event);
+                  }}
+                  onSelect={(event) => {
+                    setBorderColor(event);
+                  }}
+                  options={colors}
+                  selectedValues={borderColor}
+                  showCheckbox
+                  hideSelectedList
+                  style={multiSelectStyle}
+                />
+              </div>
+              <div> {renderImagine()}</div>
+            </>
+          }
+        />
+      )}
     </div>
   );
 }

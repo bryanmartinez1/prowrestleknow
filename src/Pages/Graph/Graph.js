@@ -25,7 +25,6 @@ import Multiselect from "multiselect-react-dropdown";
 import Table from "./GraphCreator/Table/Table.js";
 import Modal from "../../Components/Modal/Modal.js";
 import Timeline from "./GraphCreator/Timeline/Timeline.js";
-import Rating from "./GraphCreator/Rating/Rating.js";
 import DataGetter from "./DataGetter/DataGetter.js";
 
 ChartJS.register(
@@ -138,7 +137,6 @@ export default function Graph() {
     "Doughnut",
     "Scatter",
     "Line",
-    "Rating",
     "Timeline",
   ];
 
@@ -221,8 +219,6 @@ export default function Graph() {
         return <Line data={data} options={options} />;
       case "Table":
         return <Table data={data} options={options} />;
-      case "Rating":
-        return <Rating data={data} options={options} />;
       case "Timeline":
         return <Timeline data={data} options={options} />;
       default:

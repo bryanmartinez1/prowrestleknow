@@ -33,14 +33,14 @@ export default function Navbar() {
           imgFunction={() => navigate("/graph")}
         />
         <IMGButton
-          src={controller}
-          alt="Games"
-          imgFunction={() => navigate("/games")}
-        />
-        <IMGButton
           src={imagine}
           alt="Imagine"
           imgFunction={() => navigate("/imagine")}
+        />
+        <IMGButton
+          src={controller}
+          alt="Games"
+          imgFunction={() => navigate("/games")}
         />
         <IMGButton
           src={info}

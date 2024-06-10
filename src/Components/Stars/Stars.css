@@ -1,0 +1,30 @@
+/* Credit to https://css-tip.com/star-shape/ */
+
+.borderStar {
+    height: 200px;
+    width: 200px;
+    aspect-ratio: 1;
+    clip-path: polygon(50% 0,
+      calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+      calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+      calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+      calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+     ); 
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     cursor: pointer;
+     overflow: hidden;
+}
+
+.fillStar {
+    height: 180px;
+    width: 180px;
+    aspect-ratio: 1;
+    clip-path: polygon(50% 0,
+      calc(50%*(1 + sin(.4turn))) calc(50%*(1 - cos(.4turn))),
+      calc(50%*(1 - sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+      calc(50%*(1 + sin(.2turn))) calc(50%*(1 - cos(.2turn))),
+      calc(50%*(1 - sin(.4turn))) calc(50%*(1 - cos(.4turn))) 
+     ); 
+}
