@@ -1,0 +1,36 @@
+.STEALBox {
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    font-family: Lexend;
+    box-sizing: border-box;
+    border: 3px solid;
+    border-radius: 5px;
+}
+
+.SBLeft {
+    border-right: 3px solid;
+    height: 100%;
+    font-family: Lexend;
+    box-sizing: border-box;
+    font-size: 100px;
+    font-weight: bold;
+    white-space: pre-wrap;
+    word-break: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+}
+
+.SBRight {
+    font-family: Lexend;
+    margin: 0;
+    padding: 3px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    font-size: 15px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}

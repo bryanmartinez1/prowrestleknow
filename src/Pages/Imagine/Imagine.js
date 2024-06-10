@@ -19,6 +19,7 @@ import Rating from "./ImagineCreator/Rating/Rating";
 import Modal from "../../Components/Modal/Modal";
 import RatingSettings from "./Settings/Rating/RatingSettings";
 import StoryMapSettings from "./Settings/StoryMap/StoryMapSettings";
+import SteelSettings from "./Settings/STEAL/STEALSettings";
 
 const multiSelectStyle = {
   multiselectContainer: {
@@ -112,12 +113,20 @@ export default function Imagine() {
       const imgData = canvas.toDataURL("image/png");
       const link = document.createElement("a");
       link.href = imgData;
-      link.download = "chart.png";
+      link.download = `${imagineTitle}.png`;
       link.click();
     });
   }
   // Ratings
   const [starCount, setStarCount] = useState(5);
+  // T Chart
+  const [columnCount, setColumnCount] = useState(2);
+  // STEAL
+  const [s, setS] = useState("");
+  const [t, setT] = useState("");
+  const [e, setE] = useState("");
+  const [a, setA] = useState("");
+  const [l, setL] = useState("");
   // Story Map
   const [smCharacters, setSMCharacters] = useState("");
   const [smSettings, setSMSettings] = useState("");
@@ -141,6 +150,16 @@ export default function Imagine() {
       conflict: smConflict,
       resolution: smResolution,
       theme: smTheme,
+    },
+    tchart: {
+      columnCount: columnCount,
+    },
+    steal: {
+      s: s,
+      t: t,
+      e: e,
+      a: a,
+      l: l,
     },
   };
 
@@ -178,36 +197,20 @@ export default function Imagine() {
     }
   };
 
-  // const [smCharacters, setSMCharacters] = useState("");
-  // const [smSettings, setSMSettings] = useState("");
-  // const [smBeginning, setSMBeginning] = useState("");
-  // const [smMiddle, setSMMiddle] = useState("");
-  // const [smEnd, setSMEnd] = useState("");
-  // const [smConflict, setSMConflict] = useState("");
-  // const [smResolution, setSMResolution] = useState("");
-  // const [smTheme, setSMTheme] = useState("");
-
   const renderDataSettings = () => {
     switch (imagine[0]) {
       case "Story Map":
         return (
           <StoryMapSettings
-            characters={smCharacters}
             setCharacters={setSMCharacters}
-            setting={smSettings}
             setSetting={setSMSettings}
-            beginning={smBeginning}
             setBeginning={setSMBeginning}
-            middle={smMiddle}
             setMiddle={setSMMiddle}
-            end={smEnd}
             setEnd={setSMEnd}
-            conflict={smConflict}
             setConflict={setSMConflict}
-            resolution={smResolution}
             setResolution={setSMResolution}
-            theme={smTheme}
             setTheme={setSMTheme}
+            data={data}
           />
         );
       case "Rating":
@@ -217,6 +220,17 @@ export default function Imagine() {
             setCount={setStarCount}
             options={options}
             data={data}
+          />
+        );
+      case "Steal":
+        return (
+          <SteelSettings
+            data={data}
+            setS={setS}
+            setT={setT}
+            setE={setE}
+            setA={setA}
+            setL={setL}
           />
         );
       default:

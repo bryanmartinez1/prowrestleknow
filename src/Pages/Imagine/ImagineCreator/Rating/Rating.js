@@ -4,11 +4,11 @@ import Stars from "../../../../Components/Stars/Stars";
 
 export default function Rating({ data, options }) {
   if (data.ratings.starsCount <= 0) {
-    data.starsCount = 1;
+    data.ratings.starsCount = 1;
   }
 
   if (data.ratings.starsCount >= 16) {
-    data.starsCount = 15;
+    data.ratings.starsCount = 15;
   }
   const starsCountArray = Array.from(
     { length: data.ratings.starsCount },
