@@ -136,6 +136,7 @@ export default function Imagine() {
 
   const data = {
     count: count,
+    steal: steal,
     storyBoard: {
       headers: sbHeaders,
       texts: sbTexts,
@@ -150,7 +151,6 @@ export default function Imagine() {
       resolution: smResolution,
       theme: smTheme,
     },
-    steals: steal,
   };
 
   const options = {

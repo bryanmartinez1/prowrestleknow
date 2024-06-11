@@ -10,16 +10,15 @@ export default function SteelSettings({ data, setSTEAL }) {
   ];
 
   function updateSTEAL(index, event) {
-    const stealArray = [...data.steals];
+    const stealArray = [...data.steal];
     stealArray[index] = event.target.value;
     setSTEAL(stealArray);
   }
-  const array = data.steals;
   return (
     <>
       {placeholders.map((item, index) => (
         <textarea
-          value={array[index]}
+          value={data.steal[index]}
           onChange={(event) => updateSTEAL(index, event)}
           className="smTextArea"
           placeholder={placeholders[index]}

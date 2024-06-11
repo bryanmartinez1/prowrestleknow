@@ -10,7 +10,7 @@ export default function Steal({ data, options }) {
       {stealArray.map((item, index) => (
         <STEALBox
           left={stealArray[index]}
-          right={data.steals[index]}
+          right={data.steal[index]}
           fillColor={
             options.backgroundColor[index % options.backgroundColor.length]
           }
