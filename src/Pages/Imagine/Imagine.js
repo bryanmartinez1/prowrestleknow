@@ -20,6 +20,7 @@ import Modal from "../../Components/Modal/Modal";
 import RatingSettings from "./Settings/Rating/RatingSettings";
 import StoryMapSettings from "./Settings/StoryMap/StoryMapSettings";
 import SteelSettings from "./Settings/STEAL/STEALSettings";
+import StoryBoardSettings from "./Settings/StoryBoardSettings/StoryBoardSettings";
 
 const multiSelectStyle = {
   multiselectContainer: {
@@ -46,7 +47,7 @@ const multiSelectStyle = {
 export default function Imagine() {
   const [imagineTitle, setImagineTitle] = useState("");
   const [imagineAuthor, setImagineAuthor] = useState("");
-  const [imagine, setImagine] = useState(["Rating"]);
+  const [imagine, setImagine] = useState([]);
   const imagineOptions = [
     "Rating",
     "Concept Map",
@@ -60,8 +61,8 @@ export default function Imagine() {
     "Story Board",
   ];
 
-  const [backgroundColor, setBackgroundColor] = useState(["gold"]);
-  const [borderColor, setBorderColor] = useState(["black"]);
+  const [backgroundColor, setBackgroundColor] = useState([]);
+  const [borderColor, setBorderColor] = useState([]);
 
   const colors = [
     "black",
@@ -117,10 +118,9 @@ export default function Imagine() {
       link.click();
     });
   }
-  // Ratings
-  const [starCount, setStarCount] = useState(5);
-  // T Chart
-  const [columnCount, setColumnCount] = useState(2);
+  // Ratings T Chart, Story Board
+  const [count, setCount] = useState(5);
+
   // STEAL
   const [s, setS] = useState("");
   const [t, setT] = useState("");
@@ -136,10 +136,14 @@ export default function Imagine() {
   const [smConflict, setSMConflict] = useState("");
   const [smResolution, setSMResolution] = useState("");
   const [smTheme, setSMTheme] = useState("");
+  const [sbHeaders, setSBHeaders] = useState([Array(15).fill("")]);
+  const [sbTexts, setSBTexts] = useState([Array(15).fill("")]);
 
   const data = {
-    ratings: {
-      starsCount: starCount,
+    count: count,
+    storyBoard: {
+      headers: sbHeaders,
+      texts: sbTexts,
     },
     storyMap: {
       characters: smCharacters,
@@ -150,9 +154,6 @@ export default function Imagine() {
       conflict: smConflict,
       resolution: smResolution,
       theme: smTheme,
-    },
-    tchart: {
-      columnCount: columnCount,
     },
     steal: {
       s: s,
@@ -216,8 +217,8 @@ export default function Imagine() {
       case "Rating":
         return (
           <RatingSettings
-            count={starCount}
-            setCount={setStarCount}
+            count={count}
+            setCount={setCount}
             options={options}
             data={data}
           />
@@ -231,6 +232,15 @@ export default function Imagine() {
             setE={setE}
             setA={setA}
             setL={setL}
+          />
+        );
+      case "Story Board":
+        return (
+          <StoryBoardSettings
+            data={data}
+            setHeaders={setSBHeaders}
+            setTexts={setSBTexts}
+            setCount={setCount}
           />
         );
       default:

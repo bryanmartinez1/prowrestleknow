@@ -3,15 +3,15 @@ import "./Rating.css";
 import Stars from "../../../../Components/Stars/Stars";
 
 export default function Rating({ data, options }) {
-  if (data.ratings.starsCount <= 0) {
-    data.ratings.starsCount = 1;
+  if (data.count <= 0) {
+    data.count = 1;
   }
 
-  if (data.ratings.starsCount >= 16) {
-    data.ratings.starsCount = 15;
+  if (data.count >= 16) {
+    data.count = 15;
   }
   const starsCountArray = Array.from(
-    { length: data.ratings.starsCount },
+    { length: data.count },
     (_, index) => index + 1
   );
 

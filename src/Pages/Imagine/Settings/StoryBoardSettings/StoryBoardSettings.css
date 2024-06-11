@@ -1,0 +1,26 @@
+.StoryBoardSettings {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.storyBoardInfo {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.sbInput {
+    font-family: Lexend;
+    font-size: 20px;
+}
+
+.sbTextArea {
+    font-family: Lexend;
+    resize: none;
+    height: 300px;
+    font-size: 15px;
+}

@@ -1,0 +1,42 @@
+.StoryBox {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    font-family: Lexend;
+    box-sizing: border-box;
+    border: 3px solid;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    white-space: pre-wrap;
+    word-break: break-word;
+    width: 300px;
+    min-height: 400px;
+}
+
+.storyBoxHeader {
+    box-sizing: border-box;
+    text-align: left;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.storyBoxImage {
+    box-sizing: border-box;
+    height: 300px;
+    width:300px;
+}
+
+.storyBoxPre {
+    border-top: 3px solid;
+    font-family: Lexend;
+    margin: 0;
+    padding: 3px;
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+    font-size: 15px;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
