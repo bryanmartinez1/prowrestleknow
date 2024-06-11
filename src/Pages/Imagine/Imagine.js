@@ -120,13 +120,8 @@ export default function Imagine() {
   }
   // Ratings T Chart, Story Board
   const [count, setCount] = useState(5);
-
-  // STEAL
-  const [s, setS] = useState("");
-  const [t, setT] = useState("");
-  const [e, setE] = useState("");
-  const [a, setA] = useState("");
-  const [l, setL] = useState("");
+  //  STEAL
+  const [steal, setSTEAL] = useState(Array(5).fill(""));
   // Story Map
   const [smCharacters, setSMCharacters] = useState("");
   const [smSettings, setSMSettings] = useState("");
@@ -136,8 +131,8 @@ export default function Imagine() {
   const [smConflict, setSMConflict] = useState("");
   const [smResolution, setSMResolution] = useState("");
   const [smTheme, setSMTheme] = useState("");
-  const [sbHeaders, setSBHeaders] = useState([Array(15).fill("")]);
-  const [sbTexts, setSBTexts] = useState([Array(15).fill("")]);
+  const [sbHeaders, setSBHeaders] = useState(Array(15).fill(""));
+  const [sbTexts, setSBTexts] = useState(Array(15).fill(""));
 
   const data = {
     count: count,
@@ -155,13 +150,7 @@ export default function Imagine() {
       resolution: smResolution,
       theme: smTheme,
     },
-    steal: {
-      s: s,
-      t: t,
-      e: e,
-      a: a,
-      l: l,
-    },
+    steals: steal,
   };
 
   const options = {
@@ -224,16 +213,7 @@ export default function Imagine() {
           />
         );
       case "Steal":
-        return (
-          <SteelSettings
-            data={data}
-            setS={setS}
-            setT={setT}
-            setE={setE}
-            setA={setA}
-            setL={setL}
-          />
-        );
+        return <SteelSettings data={data} setSTEAL={setSTEAL} />;
       case "Story Board":
         return (
           <StoryBoardSettings
