@@ -4,8 +4,12 @@ import SMBox from "../../../../Components/SMBox/SMBOX";
 export default function StoryMap({ data, options }) {
   return (
     <div className="storyMap">
-      <div className="smTitle"> {options.title}</div>
-      <div className="smAuthor"> {options.author}</div>
+      <div className="smTitle" style={{ textAlign: options.headerAlign }}>
+        {options.title}
+      </div>
+      <div className="smAuthor" style={{ textAlign: options.headerAlign }}>
+        {options.author}
+      </div>
       <div className="rows">
         <SMBox
           title="Characters"

@@ -1,6 +1,15 @@
 import React from "react";
 
 export default function TChart({ data, options }) {
-  // const columnsArray = Array.from({ length: chart }, (_, index) => index + 1);
-  return <div className="home">chart.title</div>;
+  return (
+    <div className="home">
+      <div className="smTitle" style={{ textAlign: options.headerAlign }}>
+        {options.title}
+      </div>
+      <div className="smAuthor" style={{ textAlign: options.headerAlign }}>
+        {options.author}
+      </div>
+      {data.count}
+    </div>
+  );
 }

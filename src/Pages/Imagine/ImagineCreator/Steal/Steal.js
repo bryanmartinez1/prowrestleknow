@@ -5,8 +5,12 @@ export default function Steal({ data, options }) {
   const stealArray = ["S", "T", "E", "A", "L"];
   return (
     <div className="home">
-      <div className="smTitle"> {options.title}</div>
-      <div className="smAuthor"> {options.author}</div>
+      <div className="smTitle" style={{ textAlign: options.headerAlign }}>
+        {options.title}
+      </div>
+      <div className="smAuthor" style={{ textAlign: options.headerAlign }}>
+        {options.author}
+      </div>
       {stealArray.map((item, index) => (
         <STEALBox
           left={stealArray[index]}

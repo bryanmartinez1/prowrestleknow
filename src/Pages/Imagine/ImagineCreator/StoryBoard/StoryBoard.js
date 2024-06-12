@@ -17,8 +17,12 @@ export default function StoryBoard({ data, options }) {
 
   return (
     <div className="home">
-      <div className="smTitle"> {options.title}</div>
-      <div className="smAuthor"> {options.author}</div>
+      <div className="smTitle" style={{ textAlign: options.headerAlign }}>
+        {options.title}
+      </div>
+      <div className="smAuthor" style={{ textAlign: options.headerAlign }}>
+        {options.author}
+      </div>
       <div className="storyBoxContainer">
         {boardCountArray.map((item, index) => (
           <StoryBox

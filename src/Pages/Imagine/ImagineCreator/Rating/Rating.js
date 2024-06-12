@@ -17,8 +17,12 @@ export default function Rating({ data, options }) {
 
   return (
     <div className="RatingContainer">
-      <div className="title"> {options.title}</div>
-      <div className="author"> {options.author}</div>
+      <div className="title" style={{ textAlign: options.headerAlign }}>
+        {options.title}
+      </div>
+      <div className="author" style={{ textAlign: options.headerAlign }}>
+        {options.author}
+      </div>
       <div className="starContainer">
         {starsCountArray.map((item, index) => (
           <Stars

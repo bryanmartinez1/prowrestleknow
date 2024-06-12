@@ -22,6 +22,8 @@ export const colors = [
   "lavender",
 ];
 
+export const headerAlignment = ["center", "start", "end"];
+
 export const imagineOptions = [
   "Rating",
   "Idea Wheel",

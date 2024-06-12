@@ -17,8 +17,14 @@ import RatingSettings from "./Settings/Rating/RatingSettings";
 import StoryMapSettings from "./Settings/StoryMap/StoryMapSettings";
 import SteelSettings from "./Settings/STEAL/STEALSettings";
 import StoryBoardSettings from "./Settings/StoryBoardSettings/StoryBoardSettings";
-import { colors, imagineOptions, graphSelectStyle } from "../../Config/Options";
+import {
+  colors,
+  imagineOptions,
+  graphSelectStyle,
+  headerAlignment,
+} from "../../Config/Options";
 import { takeShot } from "../../Config/takeShot";
+import TChartSettings from "./Settings/TChart/TChartSettings";
 
 export default function Imagine() {
   const [imagineTitle, setImagineTitle] = useState("");
@@ -27,6 +33,7 @@ export default function Imagine() {
 
   const [backgroundColor, setBackgroundColor] = useState([]);
   const [borderColor, setBorderColor] = useState([]);
+  const [headerAlign, setHeaderAlign] = useState(["center"]);
 
   const [isSettingsModalOpen, setSettingsModalOpen] = useState(false);
   const settingsModalOpen = useCallback(() => {
@@ -44,15 +51,13 @@ export default function Imagine() {
     setDataModalOpen(false);
   }, []);
 
-  // Ratings T Chart, Story Board
+  // Ratings T Chart, Story Board, Story Map
   const [count, setCount] = useState(5);
-
   const [steal, setSTEAL] = useState(Array(5).fill(""));
-
   const [storyMap, setStoryMap] = useState(Array(8).fill(""));
-  // Story Board
   const [sbHeaders, setSBHeaders] = useState(Array(15).fill(""));
   const [sbTexts, setSBTexts] = useState(Array(15).fill(""));
+  const [tChart, setTChart] = useState(Array(15).fill(""));
 
   const data = {
     count: count,
@@ -62,6 +67,7 @@ export default function Imagine() {
       texts: sbTexts,
     },
     storyMaps: storyMap,
+    tChart: tChart,
   };
 
   const options = {
@@ -69,6 +75,7 @@ export default function Imagine() {
     author: imagineAuthor,
     backgroundColor: backgroundColor,
     borderColor: borderColor,
+    headerAlign: headerAlign[0],
   };
 
   const renderImagine = () => {
@@ -114,6 +121,14 @@ export default function Imagine() {
             setHeaders={setSBHeaders}
             setTexts={setSBTexts}
             setCount={setCount}
+          />
+        );
+      case "T-Chart":
+        return (
+          <TChartSettings
+            setCount={setCount}
+            data={data}
+            setTChart={setTChart}
           />
         );
       default:
@@ -214,6 +229,22 @@ export default function Imagine() {
                   showCheckbox
                   hideSelectedList
                   style={graphSelectStyle}
+                />
+                <Multiselect
+                  placeholder="Select Header Alignment"
+                  isObject={false}
+                  onRemove={(event) => {
+                    setHeaderAlign(event);
+                  }}
+                  onSelect={(event) => {
+                    setHeaderAlign(event);
+                  }}
+                  options={headerAlignment}
+                  selectedValues={headerAlign}
+                  showCheckbox
+                  hideSelectedList
+                  style={graphSelectStyle}
+                  selectionLimit={1}
                 />
               </div>
               <div> {renderImagine()}</div>

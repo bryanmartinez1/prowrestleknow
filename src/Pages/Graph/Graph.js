@@ -19,6 +19,7 @@ import {
   RadialLinearScale,
   Filler,
   ArcElement,
+  registerables,
 } from "chart.js";
 import Multiselect from "multiselect-react-dropdown";
 import Table from "./GraphCreator/Table/Table.js";
@@ -30,6 +31,7 @@ import {
   graphSelectStyle,
   multiSelectStyle,
   chartsANDgraphs,
+  headerAlignment,
 } from "../../Config/Options.js";
 import { takeShot } from "../../Config/takeShot.js";
 
@@ -44,17 +46,20 @@ ChartJS.register(
   LineElement,
   RadialLinearScale,
   Filler,
-  ArcElement
+  ArcElement,
+  ...registerables
 );
 
 export default function Graph() {
   const [chartSelect, setChartSelect] = useState("wrestler");
   const [chartType, setChartType] = useState([]);
   const [chartTitle, setChartTitle] = useState("");
+  const [chartSubtitle, setChartSubtitle] = useState("");
   const [xLabel, setXLabel] = useState("");
   const [yLabel, setYLabel] = useState("");
   const [fillColor, setSelectedFillColors] = useState([]);
   const [borderColor, setBorderColor] = useState([]);
+  const [headerAlign, setHeaderAlign] = useState(["center"]);
 
   const data = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -75,14 +80,28 @@ export default function Graph() {
     plugins: {
       legend: {
         position: "top",
+        align: headerAlign[0],
       },
       title: {
         display: true,
         text: chartTitle,
         font: {
           size: 24,
+          family: "Lexend",
         },
         color: "black",
+        position: "top",
+        align: headerAlign[0],
+      },
+      subtitle: {
+        display: true,
+        text: chartSubtitle,
+        font: {
+          size: 18,
+          family: "Lexend",
+        },
+        color: "black",
+        align: headerAlign[0],
       },
     },
     indexAxis: chartType[0] === "Horizontal Bar" ? "y" : "x",
@@ -108,24 +127,36 @@ export default function Graph() {
         : {},
   };
 
+  //  https://stackoverflow.com/questions/42585861/chart-js-increase-spacing-between-legend-and-chart
+  //  User: Nidhi Shah, Jan 16, 2023 at 6:44
+  const plugin = {
+    beforeInit: function (chart) {
+      const originalFit = chart.legend.fit;
+      chart.legend.fit = function fit() {
+        originalFit.bind(chart.legend)();
+        this.height += 10;
+      };
+    },
+  };
+
   const renderChart = () => {
     switch (chartType[0]) {
       case "Pie":
-        return <Pie data={data} options={options} />;
+        return <Pie data={data} options={options} plugins={[plugin]} />;
       case "Doughnut":
-        return <Doughnut data={data} options={options} />;
+        return <Doughnut data={data} options={options} plugins={[plugin]} />;
       case "Scatter":
-        return <Scatter data={data} options={options} />;
+        return <Scatter data={data} options={options} plugins={[plugin]} />;
       case "Vertical Bar":
-        return <Bar data={data} options={options} />;
+        return <Bar data={data} options={options} plugins={[plugin]} />;
       case "Horizontal Bar":
-        return <Bar data={data} options={options} />;
+        return <Bar data={data} options={options} plugins={[plugin]} />;
       case "Line":
-        return <Line data={data} options={options} />;
+        return <Line data={data} options={options} plugins={[plugin]} />;
       case "Table":
-        return <Table data={data} options={options} />;
+        return <Table data={data} options={options} plugins={[plugin]} />;
       case "Timeline":
-        return <Timeline data={data} options={options} />;
+        return <Timeline data={data} options={options} plugins={[plugin]} />;
       default:
         return <>Select a Chart Type</>;
     }
@@ -204,6 +235,13 @@ export default function Graph() {
                 type="text"
                 onChange={(event) => setChartTitle(event.target.value)}
               />
+              <input
+                className="chartTitleInput"
+                placeholder="Input Chart Subitle"
+                value={chartSubtitle}
+                type="text"
+                onChange={(event) => setChartSubtitle(event.target.value)}
+              />
               {chartType[0] === "Vertical Bar" ||
               chartType[0] === "Horizontal Bar" ||
               chartType[0] === "Scatter" ||
@@ -257,6 +295,22 @@ export default function Graph() {
                   showCheckbox
                   hideSelectedList
                   style={multiSelectStyle}
+                />
+                <Multiselect
+                  placeholder="Select Header Alignment"
+                  isObject={false}
+                  onRemove={(event) => {
+                    setHeaderAlign(event);
+                  }}
+                  onSelect={(event) => {
+                    setHeaderAlign(event);
+                  }}
+                  options={headerAlignment}
+                  selectedValues={headerAlign}
+                  showCheckbox
+                  hideSelectedList
+                  style={multiSelectStyle}
+                  selectionLimit={1}
                 />
               </div>
               <div className="chartPreview">{renderChart()}</div>
