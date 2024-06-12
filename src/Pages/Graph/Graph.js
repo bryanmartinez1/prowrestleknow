@@ -6,7 +6,6 @@ import getDataIMG from "../../Images/get-data.png";
 import settingsIMG from "../../Images/settings.png";
 import IMGButton from "../../Components/IMGButton/IMGButton.js";
 import { Bar, Pie, Doughnut, Scatter, Line } from "react-chartjs-2";
-import html2canvas from "html2canvas";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -26,6 +25,13 @@ import Table from "./GraphCreator/Table/Table.js";
 import Modal from "../../Components/Modal/Modal.js";
 import Timeline from "./GraphCreator/Timeline/Timeline.js";
 import DataGetter from "./DataGetter/DataGetter.js";
+import {
+  colors,
+  graphSelectStyle,
+  multiSelectStyle,
+  chartsANDgraphs,
+} from "../../Config/Options.js";
+import { takeShot } from "../../Config/takeShot.js";
 
 ChartJS.register(
   CategoryScale,
@@ -41,104 +47,14 @@ ChartJS.register(
   ArcElement
 );
 
-const graphSelectStyle = {
-  multiselectContainer: {
-    width: "100%",
-    height: "50px",
-    backgroundColor: "whitesmoke",
-  },
-  searchBox: {
-    width: "100%",
-    height: "50px",
-  },
-  optionContainer: {
-    backgroundColor: "whitesmoke",
-  },
-  inputField: {
-    width: "90%",
-    height: "35px",
-    color: "black",
-    fontSize: "20px",
-    overflow: "hidden",
-  },
-};
-
-const multiSelectStyle = {
-  multiselectContainer: {
-    width: "100%",
-    height: "50px",
-    backgroundColor: "whitesmoke",
-  },
-  searchBox: {
-    width: "100%",
-    height: "50px",
-  },
-  optionContainer: {
-    backgroundColor: "whitesmoke",
-  },
-  inputField: {
-    width: "100%",
-    height: "35px",
-    color: "black",
-    fontSize: "20px",
-    overflow: "hidden",
-  },
-};
-
 export default function Graph() {
   const [chartSelect, setChartSelect] = useState("wrestler");
-  const [chartType, setChartType] = useState(["Table"]);
+  const [chartType, setChartType] = useState([]);
   const [chartTitle, setChartTitle] = useState("");
   const [xLabel, setXLabel] = useState("");
   const [yLabel, setYLabel] = useState("");
-  const [colors, setSelectedColors] = useState([
-    "black",
-    "white",
-    "red",
-    "blue",
-    "yellow",
-    "green",
-    "purple",
-    "orange",
-    "pink",
-    "brown",
-    "gray",
-  ]);
-  const [borderColor, setBorderColor] = useState(["black"]);
-  const backgroundColors = [
-    "black",
-    "white",
-    "red",
-    "blue",
-    "yellow",
-    "green",
-    "purple",
-    "orange",
-    "pink",
-    "brown",
-    "gray",
-    "lime",
-    "steelblue",
-    "deeppink",
-    "crimson",
-    "gold",
-    "salmon",
-    "tomato",
-    "tan",
-    "teal",
-    "lavender",
-  ];
-
-  const charts = [
-    "Table",
-    "Vertical Bar",
-    "Horizontal Bar",
-    "Pie",
-    "Doughnut",
-    "Scatter",
-    "Line",
-    "Timeline",
-  ];
+  const [fillColor, setSelectedFillColors] = useState([]);
+  const [borderColor, setBorderColor] = useState([]);
 
   const data = {
     labels: ["January", "February", "March", "April", "May", "June", "July"],
@@ -146,7 +62,7 @@ export default function Graph() {
       {
         label: "# of Votes",
         data: [12, 19, 3, 5, 2, 3, 7],
-        backgroundColor: colors,
+        backgroundColor: fillColor,
         borderColor: borderColor,
         borderWidth: 3,
       },
@@ -191,17 +107,6 @@ export default function Graph() {
           }
         : {},
   };
-
-  function takeShot() {
-    let div = document.getElementById("chart");
-    html2canvas(div).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const link = document.createElement("a");
-      link.href = imgData;
-      link.download = "chart.png";
-      link.click();
-    });
-  }
 
   const renderChart = () => {
     switch (chartType[0]) {
@@ -258,7 +163,7 @@ export default function Graph() {
           onSelect={(event) => {
             setChartType(event);
           }}
-          options={charts}
+          options={chartsANDgraphs}
           selectedValues={chartType}
           showCheckbox
           hideSelectedList
@@ -277,7 +182,11 @@ export default function Graph() {
           imgFunction={settingsModalOpen}
           alt="Chart Settings"
         />
-        <IMGButton src={downloadIMG} imgFunction={takeShot} alt="Download" />
+        <IMGButton
+          src={downloadIMG}
+          imgFunction={() => takeShot("chart", chartTitle)}
+          alt="Download"
+        />
       </div>
 
       <div className="chartDiv" id="chart">
@@ -323,13 +232,13 @@ export default function Graph() {
                   placeholder="Select Fill Colors"
                   isObject={false}
                   onRemove={(event) => {
-                    setSelectedColors(event);
+                    setSelectedFillColors(event);
                   }}
                   onSelect={(event) => {
-                    setSelectedColors(event);
+                    setSelectedFillColors(event);
                   }}
-                  options={backgroundColors}
-                  selectedValues={colors}
+                  options={colors}
+                  selectedValues={fillColor}
                   showCheckbox
                   hideSelectedList
                   style={multiSelectStyle}
@@ -343,7 +252,7 @@ export default function Graph() {
                   onSelect={(event) => {
                     setBorderColor(event);
                   }}
-                  options={backgroundColors}
+                  options={colors}
                   selectedValues={borderColor}
                   showCheckbox
                   hideSelectedList

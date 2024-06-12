@@ -1,8 +1,3 @@
-@font-face {
-    font-family: Lexend;
-    src:url(/src/Font/LexendGiga-VariableFont_wght.ttf);
-}
-
 .Searchbar {
     box-sizing: border-box;
     display: flex;

@@ -9,7 +9,7 @@ export default function StoryMap({ data, options }) {
       <div className="rows">
         <SMBox
           title="Characters"
-          info={data.storyMap.characters}
+          info={data.storyMaps[0]}
           fillColor={
             options.backgroundColor[0 % options.backgroundColor.length]
           }
@@ -17,7 +17,7 @@ export default function StoryMap({ data, options }) {
         />
         <SMBox
           title="Settings"
-          info={data.storyMap.settings}
+          info={data.storyMaps[1]}
           fillColor={
             options.backgroundColor[1 % options.backgroundColor.length]
           }
@@ -27,7 +27,7 @@ export default function StoryMap({ data, options }) {
       <div className="rows">
         <SMBox
           title="Beginning"
-          info={data.storyMap.beginning}
+          info={data.storyMaps[2]}
           fillColor={
             options.backgroundColor[2 % options.backgroundColor.length]
           }
@@ -35,7 +35,7 @@ export default function StoryMap({ data, options }) {
         />
         <SMBox
           title="Middle"
-          info={data.storyMap.middle}
+          info={data.storyMaps[3]}
           fillColor={
             options.backgroundColor[3 % options.backgroundColor.length]
           }
@@ -43,7 +43,7 @@ export default function StoryMap({ data, options }) {
         />
         <SMBox
           title="End"
-          info={data.storyMap.end}
+          info={data.storyMaps[4]}
           fillColor={
             options.backgroundColor[4 % options.backgroundColor.length]
           }
@@ -53,7 +53,7 @@ export default function StoryMap({ data, options }) {
       <div className="rows">
         <SMBox
           title="Conflict"
-          info={data.storyMap.conflict}
+          info={data.storyMaps[5]}
           fillColor={
             options.backgroundColor[5 % options.backgroundColor.length]
           }
@@ -61,7 +61,7 @@ export default function StoryMap({ data, options }) {
         />
         <SMBox
           title="Resolution"
-          info={data.storyMap.resolution}
+          info={data.storyMaps[6]}
           fillColor={
             options.backgroundColor[6 % options.backgroundColor.length]
           }
@@ -71,7 +71,7 @@ export default function StoryMap({ data, options }) {
       <div className="rows">
         <SMBox
           title="Theme"
-          info={data.storyMap.theme}
+          info={data.storyMaps[7]}
           fillColor={
             options.backgroundColor[7 % options.backgroundColor.length]
           }

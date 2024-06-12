@@ -1,71 +1,67 @@
 import React from "react";
 import "./StoryMapSettings.css";
 
-export default function StoryMapSettings({
-  data,
-  setCharacters,
-  setSetting,
-  setBeginning,
-  setMiddle,
-  setEnd,
-  setConflict,
-  setResolution,
-  setTheme,
-}) {
+export default function StoryMapSettings({ data, setStoryMap }) {
+  function updateStoryMap(index, event) {
+    const storyMapArray = [...data.storyMaps];
+    storyMapArray[index] = event.target.value;
+    setStoryMap(storyMapArray);
+  }
+
   return (
     <div className="storyMapSettings">
       <div className="rows">
         <textarea
-          value={data.storyMap.characters}
-          onChange={(event) => setCharacters(event.target.value)}
+          value={data.storyMaps[0]}
+          onChange={(event) => updateStoryMap(0, event)}
           className="smTextArea"
           placeholder="Characters"
         />
         <textarea
-          value={data.storyMap.setting}
-          onChange={(event) => setSetting(event.target.value)}
+          value={data.storyMaps[1]}
+          onChange={(event) => updateStoryMap(1, event)}
           className="smTextArea"
           placeholder="Settings"
         />
       </div>
       <div className="rows">
         <textarea
-          value={data.storyMap.beginning}
-          onChange={(event) => setBeginning(event.target.value)}
+          value={data.storyMaps[2]}
+          onChange={(event) => updateStoryMap(2, event)}
           className="smTextArea"
           placeholder="Beginning"
         />
         <textarea
-          value={data.storyMap.middle}
-          onChange={(event) => setMiddle(event.target.value)}
+          value={data.storyMaps[3]}
+          onChange={(event) => updateStoryMap(3, event)}
           className="smTextArea"
           placeholder="Middle"
         />
         <textarea
-          value={data.storyMap.end}
-          onChange={(event) => setEnd(event.target.value)}
+          value={data.storyMaps[4]}
+          onChange={(event) => updateStoryMap(4, event)}
           className="smTextArea"
           placeholder="End"
         />
       </div>
       <div className="rows">
         <textarea
-          value={data.storyMap.conflict}
-          onChange={(event) => setConflict(event.target.value)}
+          value={data.storyMaps[5]}
+          onChange={(event) => updateStoryMap(5, event)}
           className="smTextArea"
           placeholder="Conflict"
         />
         <textarea
-          value={data.storyMap.resolution}
-          onChange={(event) => setResolution(event.target.value)}
+          value={data.storyMaps[6]}
+          onChange={(event) => updateStoryMap(6, event)}
           className="smTextArea"
           placeholder="Resolution"
         />
       </div>
       <div className="rows">
         <textarea
-          value={data.storyMap.theme}
-          onChange={(event) => setTheme(event.target.value)}
+          value={data.storyMaps[7]}
+          onChange={(event) => updateStoryMap(7, event)}
           className="smTextArea"
           placeholder="Theme"
         />

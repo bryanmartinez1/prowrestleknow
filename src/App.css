@@ -1,6 +1,6 @@
 @font-face {
   font-family: Lexend;
-  src:url(/src/Font/LexendGiga-VariableFont_wght.ttf);
+  src:url(/src/Config/Font/LexendGiga-VariableFont_wght.ttf);
 }
 .App {
   display: flex;
