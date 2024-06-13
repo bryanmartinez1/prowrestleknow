@@ -1,10 +1,12 @@
 import React from "react";
+import placeholder from "../../../../Images/placeholder-image.png";
 import "./StoryBoardSettings.css";
 
 export default function StoryBoardSettings({
   data,
   setHeaders,
   setTexts,
+  setImages,
   setCount,
 }) {
   if (data.count <= 0) {
@@ -31,6 +33,20 @@ export default function StoryBoardSettings({
     setTexts(textArray);
   }
 
+  function updateImageStateIndex(index, event) {
+    const imageArray = [...data.storyBoard.images];
+    const uploadedImage = event.target.files[0];
+    const imageURL = URL.createObjectURL(uploadedImage);
+    imageArray[index] = imageURL;
+    setImages(imageArray);
+  }
+
+  function removeImage(index) {
+    const imageArray = [...data.storyBoard.images];
+    imageArray[index] = "";
+    setImages(imageArray);
+  }
+
   return (
     <div className="StoryBoardSettings">
       <input
@@ -51,6 +67,27 @@ export default function StoryBoardSettings({
             onChange={(event) => updateHeaderStateIndex(index, event)}
             placeholder={`Header of Storybox ${index + 1}`}
           />
+          <div>
+            <input
+              type="file"
+              accept="image/png, image/jpeg"
+              onChange={(event) => updateImageStateIndex(index, event)}
+            />
+            {data.storyBoard.images[index] !== "" && (
+              <button onClick={() => removeImage(index)}>Remove Image</button>
+            )}
+          </div>
+          <div className="sbImageDiv">
+            <img
+              alt={`${index}`}
+              className="sbInputImage"
+              src={
+                data.storyBoard.images[index] === ""
+                  ? placeholder
+                  : data.storyBoard.images[index]
+              }
+            />
+          </div>
           <textarea
             value={data.storyBoard.texts[index]}
             onChange={(event) => updateTextStateIndex(index, event)}

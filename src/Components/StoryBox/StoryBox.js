@@ -5,6 +5,7 @@ import placeholder from "../../Images/placeholder-image.png";
 export default function StoryBox({
   header,
   text,
+  image = "",
   borderColor = "black",
   fillColor = "whitesmoke",
 }) {
@@ -14,7 +15,13 @@ export default function StoryBox({
       style={{ borderColor: borderColor, backgroundColor: fillColor }}
     >
       <div className="storyBoxHeader">{header}</div>
-      <img className="storyBoxImage" alt="StoryBox" src={placeholder} />
+      <div className="storyBoxImageDiv">
+        <img
+          className="storyBoxImage"
+          alt="StoryBox"
+          src={image === "" ? placeholder : image}
+        />
+      </div>
       <pre className="storyBoxPre" style={{ borderColor: borderColor }}>
         {text}
       </pre>

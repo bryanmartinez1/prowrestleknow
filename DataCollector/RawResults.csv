@@ -1,36 +1,55 @@
-company,show,year,month,day,competitors,winners,wins_by,stipulations,on_the_line,duration
-WWE,Raw,2024,June,3,"Ludwig Kaiser, Sheamus",Ludwig Kaiser,pinfall,none,none,TBD
-WWE,Raw,2024,June,3,"Finn Balor, Dragon Lee",Finn Balor,pinfall,none,none,TBD
-WWE,Raw,2024,June,3,"Bron Breakker, Ricochet",Bron Breakker,pinfall,none,none,TBD
-WWE,Raw,2024,June,3,"Kiana James, Natalya",Kiana James,pinfall,none,none,TBD
-WWE,Raw,2024,June,3,"Braun Strowman, Carlito",Braun Strowman,pinfall,none,none,TBD
-WWE,Raw,2024,June,3,"Bianca Belair, Jade Cargill, Shayna Bazler, Zoey Stark","Bianca Belair, Jade Cargill",DQ,none,none,TBD
-WWE,Raw,2024,June,3,"Akam, Rezar, Kofi Kingston, Xavier Woods","Akam, Rezar",pinfall,none,none,TBD
-WWE,Raw,2024,June,3,"Damian Priest, Rey Mysterio",Damian Priest,pinfall,none,none,TBD
-WWE,NXT,2024,June,4,"Jordynne Grace, Stevie Turner",Jordynne Grace,pinfall,none,none,TBD
-WWE,NXT,2024,June,4,"Jazmyn Nyx, Thea Hail",Jazmyn Nyx,pinfall,none,none,TBD
-WWE,NXT,2024,June,4,"Damon Kemp, Tony D'Angelo",Tony D'Angelo,pinfall,British Round Rules,NXT Hertiage Cup,TBD
-WWE,NXT,2024,June,4,"Izzi Dame, Natalya",Natalya,pinfall,none,none,TBD
-WWE,NXT,2024,June,4,"Fallon Henley, Kelani Jordan, Lash Legend, Jaida Parker, Mia Yim, Sol Ruca","Jaida Parker, Mia Yim, Sol Ruca",pinfall,none,none,TBD
-AEW,Dynamite,2024,June,5,"Orange Cassidy, Kyle O'Reilly, Jay Lethal, Rey Fenix",Rey Fenix,pinfall,Fatal Four Way Match,none,TBD
-AEW,Dynamite,2024,June,5,"Mark Briscoe, Brian Cage",Mark Briscoe,pinfall,none,none,TBD
-AEW,Dynamite,2024,June,5,"Bryan Danielson, Claudio Castagnoli, Jon Moxley, Wheeler Yuta, Esfinge (Halcón Furia Jr.), Astro Boy Magnus, Rugido (La Parka Negra III), Volador Jr.","Bryan Danielson, Claudio Castagnoli, Jon Moxley, Wheeler Yuta",pinfall,8-Man Grudge Match,none,TBD
-AEW,Dynamite,2024,June,5,"Saraya (Paige), Mariah May",Saraya (Paige),submission,none,none,TBD
-AEW,Dynamite,2024,June,5,"Swerve Strickland, Roderick Strong",Swerve Strickland,pinfall,none,none,TBD
-TNA,iMPACT!,2024,June,6,"Jake Something, Kon",Jake Something,pinfall,none,none,TBD
-TNA,iMPACT!,2024,June,6,"Gisele Shaw, Shazza McKenzzie",Gisele Shaw,pinfall,none,none,TBD
-TNA,iMPACT!,2024,June,6,"Trent Seven, Mike Bailey, Mustafa Ali, Campaign Singh","Trent Seven, Mike Bailey",pinfall,none,none,TBD
-TNA,iMPACT!,2024,June,6,"Jordynne Grace, Allysin Kay",Jordynne Grace,pinfall,none,TNA Knockout's World Championship,TBD
-TNA,iMPACT!,2024,June,6,"AJ Francis, Laredo Kid",AJ Francis,pinfall,none,TNA Digital Media Championship,TBD
-TNA,iMPACT!,2024,June,6,"Nic Nemeth, Frankie Kazarian",Nic Nemeth,pinfall,none,none,TBD
-WWE,SmackDown,2024,June,7,"Bianca Belair, Jade Cargill, Candice LeRae, Indi Hartwell","Bianca Belair, Jade Cargill",pinfall,none,none,TBD
-WWE,SmackDown,2024,June,7,"Grayson Waller, Johnny Gargano",Grayson Waller,pinfall,none,none,TBD
-WWE,SmackDown,2024,June,7,"Carmelo Hayes, LA Knight",LA Knight,pinfall,none,none,TBD
-WWE,SmackDown,2024,June,7,"Kevin Owens, Angelo Dawkins, Montez Ford, Solo Sikoa, Tama Tonga, Tonga Loa","Solo Sikoa, Tama Tonga, Tonga Loa",DQ,none,none,TBD
-AEW,Collision,2024,June,8,"Wheeler Yuta, Claudio Castagnoli, Dax Harwood, Cash Wheeler",none,Time Limit Draw,none,none,20
-AEW,Collision,2024,June,8,"Kris Statlander, Robyn Renegade",Kris Statlander,pinfall,none,none,TBD
-AEW,Collision,2024,June,8,"Dustin Rhodes, Johnny TV",Dustin Rhodes,pinfall,none,none,TBD
-AEW,Collision,2024,June,8,"Tony Nese, Ari Daivari, Trent Jordy, Dante Leon","Tony Nese, Ari Daivari",pinfall,none,none,TBD
-AEW,Collision,2024,June,8,"Toni Storm, Lady Frost",Toni Storm,pinfall,none,none,TBD
-AEW,Collision,2024,June,8,"Daniel Garcia, Tate Mayfairs",Daniel Garcia,pinfall,none,none,TBD
-AEW,Collision,2024,June,8,"Orange Cassidy, Kyle O'Reilly",Orange Cassidy,pinfall,none,none,TBD
+company,show,year,month,day,competitors,winners,wins_by,stipulations,on_the_line,duration,main_event
+WWE,Raw,2024,June,3,"Ludwig Kaiser, Sheamus",Ludwig Kaiser,pinfall,none,none,TBD,FALSE
+WWE,Raw,2024,June,3,"Finn Balor, Dragon Lee",Finn Balor,pinfall,none,none,TBD,FALSE
+WWE,Raw,2024,June,3,"Bron Breakker, Ricochet",Bron Breakker,pinfall,none,none,TBD,FALSE
+WWE,Raw,2024,June,3,"Kiana James, Natalya",Kiana James,pinfall,none,none,TBD,FALSE
+WWE,Raw,2024,June,3,"Braun Strowman, Carlito",Braun Strowman,pinfall,none,none,TBD,FALSE
+WWE,Raw,2024,June,3,"Bianca Belair, Jade Cargill, Shayna Bazler, Zoey Stark","Bianca Belair, Jade Cargill",DQ,none,none,TBD,FALSE
+WWE,Raw,2024,June,3,"Akam, Rezar, Kofi Kingston, Xavier Woods","Akam, Rezar",pinfall,none,none,TBD,FALSE
+WWE,Raw,2024,June,3,"Damian Priest, Rey Mysterio",Damian Priest,pinfall,none,none,TBD,TRUE
+WWE,NXT,2024,June,4,"Jordynne Grace, Stevie Turner",Jordynne Grace,pinfall,none,none,TBD,FALSE
+WWE,NXT,2024,June,4,"Jazmyn Nyx, Thea Hail",Jazmyn Nyx,pinfall,none,none,TBD,FALSE
+WWE,NXT,2024,June,4,"Damon Kemp, Tony D'Angelo",Tony D'Angelo,pinfall,British Round Rules,NXT Hertiage Cup,TBD,FALSE
+WWE,NXT,2024,June,4,"Izzi Dame, Natalya",Natalya,pinfall,none,none,TBD,FALSE
+WWE,NXT,2024,June,4,"Fallon Henley, Kelani Jordan, Lash Legend, Jaida Parker, Mia Yim, Sol Ruca","Jaida Parker, Mia Yim, Sol Ruca",pinfall,none,none,TBD,TRUE
+AEW,Dynamite,2024,June,5,"Orange Cassidy, Kyle O'Reilly, Jay Lethal, Rey Fenix",Rey Fenix,pinfall,Fatal Four Way Match,none,TBD,FALSE
+AEW,Dynamite,2024,June,5,"Mark Briscoe, Brian Cage",Mark Briscoe,pinfall,none,none,TBD,FALSE
+AEW,Dynamite,2024,June,5,"Bryan Danielson, Claudio Castagnoli, Jon Moxley, Wheeler Yuta, Esfinge, Magnus, Rugido (La Parka Negra III), Volador Jr.","Bryan Danielson, Claudio Castagnoli, Jon Moxley, Wheeler Yuta",pinfall,8-Man Grudge Match,none,TBD,FALSE
+AEW,Dynamite,2024,June,5,"Saraya, Mariah May",Saraya,submission,none,none,TBD,FALSE
+AEW,Dynamite,2024,June,5,"Swerve Strickland, Roderick Strong",Swerve Strickland,pinfall,none,none,TBD,TRUE
+TNA,iMPACT!,2024,June,6,"Jake Something, Kon",Jake Something,pinfall,none,none,TBD,FALSE
+TNA,iMPACT!,2024,June,6,"Gisele Shaw, Shazza McKenzzie",Gisele Shaw,pinfall,none,none,TBD,FALSE
+TNA,iMPACT!,2024,June,6,"Trent Seven, Mike Bailey, Mustafa Ali, Campaign Singh","Trent Seven, Mike Bailey",pinfall,none,none,TBD,FALSE
+TNA,iMPACT!,2024,June,6,"Jordynne Grace, Allysin Kay",Jordynne Grace,pinfall,none,TNA Knockout's World Championship,TBD,FALSE
+TNA,iMPACT!,2024,June,6,"AJ Francis, Laredo Kid",AJ Francis,pinfall,none,TNA Digital Media Championship,TBD,FALSE
+TNA,iMPACT!,2024,June,6,"Nic Nemeth, Frankie Kazarian",Nic Nemeth,pinfall,none,none,TBD,TRUE
+WWE,SmackDown,2024,June,7,"Bianca Belair, Jade Cargill, Candice LeRae, Indi Hartwell","Bianca Belair, Jade Cargill",pinfall,none,none,TBD,FALSE
+WWE,SmackDown,2024,June,7,"Grayson Waller, Johnny Gargano",Grayson Waller,pinfall,none,none,TBD,FALSE
+WWE,SmackDown,2024,June,7,"Carmelo Hayes, LA Knight",LA Knight,pinfall,none,none,TBD,FALSE
+WWE,SmackDown,2024,June,7,"Kevin Owens, Angelo Dawkins, Montez Ford, Solo Sikoa, Tama Tonga, Tonga Loa","Solo Sikoa, Tama Tonga, Tonga Loa",DQ,none,none,TBD,TRUE
+AEW,Collision,2024,June,8,"Wheeler Yuta, Claudio Castagnoli, Dax Harwood, Cash Wheeler",none,Time Limit Draw,none,none,20,FALSE
+AEW,Collision,2024,June,8,"Kris Statlander, Robyn Renegade",Kris Statlander,pinfall,none,none,TBD,FALSE
+AEW,Collision,2024,June,8,"Dustin Rhodes, Johnny TV",Dustin Rhodes,pinfall,none,none,TBD,FALSE
+AEW,Collision,2024,June,8,"Tony Nese, Ari Daivari, Trent Jordy, Dante Leon","Tony Nese, Ari Daivari",pinfall,none,none,TBD,FALSE
+AEW,Collision,2024,June,8,"Toni Storm, Lady Frost",Toni Storm,pinfall,none,none,TBD,FALSE
+AEW,Collision,2024,June,8,"Daniel Garcia, Tate Mayfairs",Daniel Garcia,pinfall,none,none,TBD,FALSE
+AEW,Collision,2024,June,8,"Orange Cassidy, Kyle O'Reilly",Orange Cassidy,pinfall,none,none,TBD,TRUE
+WWE,NXT BattleGround,2024,June,9,"Sol Ruca, Fallon Henley, Lash Legend, Kelani Jordan, Jaida Parker,  Mia Yim",Kelani Jordan,ladder,ladder,NXT Women's North American Championship,TBD,FALSE
+WWE,NXT BattleGround,2024,June,9,"Nathan Frazer, Axiom, Karl Anderson, Luke Gallows","Nathan Frazer, Axiom",pinfall,two man tag team,NXT Tag Team Championship,TBD,FALSE
+WWE,NXT BattleGround,2024,June,9,"Shayna Bazler, Lola Vice",Lola Vice,TKO,Underground,none,TBD,FALSE
+WWE,NXT BattleGround,2024,June,9,"Oba Femi, Wes Less, Joe Coffey",Oba Femi,pinfall,triple threat,NXT North American Championship,TBD,FALSE
+WWE,NXT BattleGround,2024,June,9,"Jordynne Grace, Roxanne Perez",Roxanne Perez,pinfall,none,NXT Women's Championship,TBD,FALSE
+WWE,NXT BattleGround,2024,June,9,"Trick Williams, Ethan Page",Trick Williams,pinfall,none,NXT Championship,TBD,TRUE
+WWE,RAW,2024,June,10,"Iyo Sky, Lyra Valkyria",Iyo Sky,pinfall,none,none,TBD,FALSE
+WWE,RAW,2024,June,10,"Rey Mysterio, Dragon Lee, Braun Strowman, JD McDonagh, Dominik Mysterio","Rey Mysterio, Dragon Lee, Braun Strowman",pinfall,none,none,TBD,FALSE
+WWE,RAW,2024,June,10,"Sami Zayn, Otis",Sami Zayn,pinfall,none,none,TBD,FALSE
+WWE,RAW,2024,June,10,"Shayna Baszler, Zoey Stark, Alba Fyre, Isla Dawn","Shayna Baszler, Zoey Stark",pinfall,none,none,TBD,FALSE
+WWE,RAW,2024,June,10,"Ilja Dragunov, Bron Breakker",Bron Breakker,pinfall,none,none,TBD,FALSE
+WWE,RAW,2024,June,10,"R-Truth, The Miz, Rezar, Akam","R-Truth, The Miz",pinfall,none,none,TBD,FALSE
+WWE,RAW,2024,June,10,"Drew McIntrye, Finn Balor",Drew McIntrye,pinfall,none,none,TBD,TRUE
+WWE,NXT,2024,June,11,"Mia Yim, Jaida Parker",Mia Yim,pinfall,none,none,TBD,FALSE
+WWE,NXT,2024,June,11,"Wes Less, Tyler Bate, Pete Dunne, Joe Coffey, Mark Coffey, Wolfgang","Joe Coffey, Mark Coffey, Wolfgang",pinfall,none,none,TBD,FALSE
+WWE,NXT,2024,June,11,"Wendy Choo, Brinley Reece",Wendy Choo,submission,none,none,TBD,FALSE
+WWE,NXT,2024,June,11,"Lexis King, Dante Chen",Lexis King,pinfall,Singapore Cane,none,TBD,FALSE
+WWE,NXT,2024,June,11,"Eddy Thorpe, Tavion Heights",Eddy Thorpe,pinfall,none,none,TBD,FALSE
+WWE,NXT,2024,June,11,"Shawn Spears, Je'Von Evans",Shawn Spears,pinfall,none,none,TBD,TRUE

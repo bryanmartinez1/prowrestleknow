@@ -1,6 +1,11 @@
 import React from "react";
 
-export default function TChartSettings({ setCount, setTChart, data }) {
+export default function TChartSettings({
+  data,
+  setCount,
+  setTCHeader,
+  setTCContent,
+}) {
   return (
     <>
       <input

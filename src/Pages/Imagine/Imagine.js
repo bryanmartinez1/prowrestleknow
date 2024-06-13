@@ -57,7 +57,9 @@ export default function Imagine() {
   const [storyMap, setStoryMap] = useState(Array(8).fill(""));
   const [sbHeaders, setSBHeaders] = useState(Array(15).fill(""));
   const [sbTexts, setSBTexts] = useState(Array(15).fill(""));
-  const [tChart, setTChart] = useState(Array(15).fill(""));
+  const [sbImages, setSBImages] = useState(Array(15).fill(""));
+  const [tcHeader, setTCHeader] = useState(Array(15).fill(""));
+  const [tcContent, setTCContent] = useState(Array(15).fill(""));
 
   const data = {
     count: count,
@@ -65,9 +67,13 @@ export default function Imagine() {
     storyBoard: {
       headers: sbHeaders,
       texts: sbTexts,
+      images: sbImages,
     },
     storyMaps: storyMap,
-    tChart: tChart,
+    tChart: {
+      header: tcHeader,
+      content: tcContent,
+    },
   };
 
   const options = {
@@ -121,6 +127,7 @@ export default function Imagine() {
             setHeaders={setSBHeaders}
             setTexts={setSBTexts}
             setCount={setCount}
+            setImages={setSBImages}
           />
         );
       case "T-Chart":
@@ -128,7 +135,8 @@ export default function Imagine() {
           <TChartSettings
             setCount={setCount}
             data={data}
-            setTChart={setTChart}
+            setTCHeader={setTCHeader}
+            setTCContent={setTCContent}
           />
         );
       default:
@@ -187,14 +195,14 @@ export default function Imagine() {
             <>
               <input
                 className="chartTitleInput"
-                placeholder="Input Imagine Title"
+                placeholder="Title"
                 value={imagineTitle}
                 type="text"
                 onChange={(event) => setImagineTitle(event.target.value)}
               />
               <input
                 className="chartTitleInput"
-                placeholder="Input Imagine Author"
+                placeholder="Subtitle"
                 value={imagineAuthor}
                 type="text"
                 onChange={(event) => setImagineAuthor(event.target.value)}

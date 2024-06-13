@@ -26,12 +26,12 @@ export const headerAlignment = ["center", "start", "end"];
 
 export const imagineOptions = [
   "Rating",
-  "Idea Wheel",
+  "Story Board",
   "Steal",
   "Story Map",
   "T-Chart",
   "Venn Diagram",
-  "Story Board",
+  "Idea Wheel",
 ];
 
 export const chartsANDgraphs = [

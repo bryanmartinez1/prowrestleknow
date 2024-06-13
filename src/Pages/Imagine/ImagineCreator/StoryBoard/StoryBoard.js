@@ -28,6 +28,7 @@ export default function StoryBoard({ data, options }) {
           <StoryBox
             header={data.storyBoard.headers[index]}
             text={data.storyBoard.texts[index]}
+            image={data.storyBoard.images[index]}
             key={index}
             fillColor={
               options.backgroundColor[index % options.backgroundColor.length]
