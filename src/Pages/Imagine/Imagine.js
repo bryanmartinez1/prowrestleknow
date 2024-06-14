@@ -2,9 +2,7 @@ import React, { useState, useCallback } from "react";
 import Multiselect from "multiselect-react-dropdown";
 import "./Imagine.css";
 import StoryBoard from "./ImagineCreator/StoryBoard/StoryBoard";
-import IdeaWheel from "./ImagineCreator/IdeaWheel/IdeaWheel";
 import TChart from "./ImagineCreator/TChart/TChart";
-import VennDiagram from "./ImagineCreator/VennDiagram/VennDiagram";
 import StoryMap from "./ImagineCreator/StoryMap/StoryMap";
 import Steal from "./ImagineCreator/Steal/Steal";
 import IMGButton from "../../Components/IMGButton/IMGButton";
@@ -88,12 +86,8 @@ export default function Imagine() {
     switch (imagine[0]) {
       case "Story Board":
         return <StoryBoard options={options} data={data} />;
-      case "Idea Wheel":
-        return <IdeaWheel options={options} data={data} />;
       case "T-Chart":
         return <TChart options={options} data={data} />;
-      case "Venn Diagram":
-        return <VennDiagram options={options} data={data} />;
       case "Story Map":
         return <StoryMap options={options} data={data} />;
       case "Rating":

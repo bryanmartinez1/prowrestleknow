@@ -30,8 +30,6 @@ export const imagineOptions = [
   "Steal",
   "Story Map",
   "T-Chart",
-  "Venn Diagram",
-  "Idea Wheel",
 ];
 
 export const chartsANDgraphs = [
