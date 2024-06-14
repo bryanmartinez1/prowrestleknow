@@ -4,3 +4,7 @@
     flex-direction: column;
     overflow-y: auto;
 }
+
+.imagineRender {
+    height: 100%;
+}

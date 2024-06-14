@@ -1,0 +1,4 @@
+.tChartEditDiv {
+    display: flex;
+    flex-direction: column;
+}

@@ -179,7 +179,7 @@ export default function Imagine() {
           alt="Download"
         />
       </div>
-      <div className="" id="imagine">
+      <div className="imagineRender" id="imagine">
         {renderImagine()}
       </div>
       {isDataModalOpen && (
