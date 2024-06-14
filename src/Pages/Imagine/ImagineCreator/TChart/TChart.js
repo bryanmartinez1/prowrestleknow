@@ -40,6 +40,7 @@ export default function TChart({ data, options }) {
               options.borderColor[index % options.borderColor.length]
             }
             width={width / data.count}
+            fontColor={options.fontColor[index % options.fontColor.length]}
             hasRightBorder={index !== data.count - 1 ? true : false}
             header={data.tChart.header[index]}
             content={data.tChart.content[index]}

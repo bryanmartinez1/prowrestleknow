@@ -6,9 +6,13 @@ export default function SMBox({
   info,
   borderColor = "black",
   fillColor = "gold",
+  fontColor = "black",
 }) {
   return (
-    <div className="SMBox" style={{ borderColor: borderColor }}>
+    <div
+      className="SMBox"
+      style={{ borderColor: borderColor, color: fontColor }}
+    >
       <div className="smBoxTitle" style={{ backgroundColor: fillColor }}>
         {title}
       </div>

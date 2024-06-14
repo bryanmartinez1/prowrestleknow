@@ -33,6 +33,7 @@ export default function StoryBoard({ data, options }) {
             fillColor={
               options.backgroundColor[index % options.backgroundColor.length]
             }
+            fontColor={options.fontColor[index % options.fontColor.length]}
             borderColor={
               options.borderColor[index % options.borderColor.length]
             }

@@ -8,11 +8,16 @@ export default function StoryBox({
   image = "",
   borderColor = "black",
   fillColor = "whitesmoke",
+  fontColor = "black",
 }) {
   return (
     <div
       className="StoryBox"
-      style={{ borderColor: borderColor, backgroundColor: fillColor }}
+      style={{
+        borderColor: borderColor,
+        backgroundColor: fillColor,
+        color: fontColor,
+      }}
     >
       <div className="storyBoxHeader">{header}</div>
       <div className="storyBoxImageDiv">

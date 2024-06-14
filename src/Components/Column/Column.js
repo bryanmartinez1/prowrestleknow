@@ -8,6 +8,7 @@ export default function Column({
   hasRightBorder,
   fillColor = "white",
   borderColor = "black",
+  fontColor = "black",
 }) {
   return (
     <div
@@ -16,6 +17,7 @@ export default function Column({
         width: width,
         borderRight: `${hasRightBorder ? `3px solid ${borderColor}` : "none"}`,
         backgroundColor: fillColor,
+        color: fontColor,
       }}
     >
       <pre className="colHeader">{header}</pre>

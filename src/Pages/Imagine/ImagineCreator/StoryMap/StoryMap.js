@@ -17,11 +17,13 @@ export default function StoryMap({ data, options }) {
           fillColor={
             options.backgroundColor[0 % options.backgroundColor.length]
           }
+          fontColor={options.fontColor[0 % options.fontColor.length]}
           borderColor={options.borderColor[0 % options.borderColor.length]}
         />
         <SMBox
           title="Settings"
           info={data.storyMaps[1]}
+          fontColor={options.fontColor[1 % options.fontColor.length]}
           fillColor={
             options.backgroundColor[1 % options.backgroundColor.length]
           }
@@ -32,6 +34,7 @@ export default function StoryMap({ data, options }) {
         <SMBox
           title="Beginning"
           info={data.storyMaps[2]}
+          fontColor={options.fontColor[2 % options.fontColor.length]}
           fillColor={
             options.backgroundColor[2 % options.backgroundColor.length]
           }
@@ -40,6 +43,7 @@ export default function StoryMap({ data, options }) {
         <SMBox
           title="Middle"
           info={data.storyMaps[3]}
+          fontColor={options.fontColor[3 % options.fontColor.length]}
           fillColor={
             options.backgroundColor[3 % options.backgroundColor.length]
           }
@@ -48,6 +52,7 @@ export default function StoryMap({ data, options }) {
         <SMBox
           title="End"
           info={data.storyMaps[4]}
+          fontColor={options.fontColor[4 % options.fontColor.length]}
           fillColor={
             options.backgroundColor[4 % options.backgroundColor.length]
           }
@@ -58,6 +63,7 @@ export default function StoryMap({ data, options }) {
         <SMBox
           title="Conflict"
           info={data.storyMaps[5]}
+          fontColor={options.fontColor[5 % options.fontColor.length]}
           fillColor={
             options.backgroundColor[5 % options.backgroundColor.length]
           }
@@ -66,6 +72,7 @@ export default function StoryMap({ data, options }) {
         <SMBox
           title="Resolution"
           info={data.storyMaps[6]}
+          fontColor={options.fontColor[6 % options.fontColor.length]}
           fillColor={
             options.backgroundColor[6 % options.backgroundColor.length]
           }
@@ -76,6 +83,7 @@ export default function StoryMap({ data, options }) {
         <SMBox
           title="Theme"
           info={data.storyMaps[7]}
+          fontColor={options.fontColor[7 % options.fontColor.length]}
           fillColor={
             options.backgroundColor[7 % options.backgroundColor.length]
           }

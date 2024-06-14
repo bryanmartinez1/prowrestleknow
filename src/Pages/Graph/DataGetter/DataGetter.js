@@ -4,7 +4,6 @@ import "./DataGetter.css";
 
 export default function DataGetter({ selector, data, options }) {
   const [range, setRange] = useState(["All"]);
-  const [rangeAmount, setRangeAmount] = useState(0);
   const charts = ["All", "Range", "Specific"];
 
   const [width, setWidth] = useState(0);
@@ -62,16 +61,6 @@ export default function DataGetter({ selector, data, options }) {
           selectionLimit={1}
           style={multiSelectStyle}
         />
-        {range[0] === "Range" && (
-          <input
-            className="rangeInput"
-            type="number"
-            min={0}
-            placeholder="Input the Amount"
-            value={rangeAmount}
-            onChange={(event) => setRangeAmount(event.target.value)}
-          />
-        )}
       </div>
       {selector}
     </div>

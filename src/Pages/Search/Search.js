@@ -10,8 +10,8 @@ export default function Search() {
 
   return (
     <div className="search">
-      <SearchSelect setSelect={setSelect} selected={select} />
       <Searchbar setSearch={setSearch} />
+      <SearchSelect setSelect={setSelect} selected={select} />
       <div className="cardGrid">
         <Card name="Bryan Martinez" />
       </div>

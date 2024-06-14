@@ -27,6 +27,7 @@ export const colors = [
   "lavender",
   "lawngreen",
   "moccasin",
+  "orchid",
   "palegreen",
   "powderblue",
   "royalblue",

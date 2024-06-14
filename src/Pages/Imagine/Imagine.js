@@ -30,6 +30,7 @@ export default function Imagine() {
   const [imagine, setImagine] = useState([]);
 
   const [backgroundColor, setBackgroundColor] = useState([]);
+  const [fontColor, setFontColor] = useState([]);
   const [borderColor, setBorderColor] = useState([]);
   const [headerAlign, setHeaderAlign] = useState(["center"]);
 
@@ -49,8 +50,8 @@ export default function Imagine() {
     setDataModalOpen(false);
   }, []);
 
-  // Ratings T Chart, Story Board, Story Map
-  const [count, setCount] = useState(5);
+  // Ratings, T Chart, Story Board, Story Map, STEAL
+  const [count, setCount] = useState(2);
   const [steal, setSTEAL] = useState(Array(5).fill(""));
   const [storyMap, setStoryMap] = useState(Array(8).fill(""));
   const [sbHeaders, setSBHeaders] = useState(Array(15).fill(""));
@@ -79,6 +80,7 @@ export default function Imagine() {
     author: imagineAuthor,
     backgroundColor: backgroundColor,
     borderColor: borderColor,
+    fontColor: fontColor,
     headerAlign: headerAlign[0],
   };
 
@@ -228,6 +230,21 @@ export default function Imagine() {
                   }}
                   options={colors}
                   selectedValues={borderColor}
+                  showCheckbox
+                  hideSelectedList
+                  style={graphSelectStyle}
+                />
+                <Multiselect
+                  placeholder="Select Font Colors"
+                  isObject={false}
+                  onRemove={(event) => {
+                    setFontColor(event);
+                  }}
+                  onSelect={(event) => {
+                    setFontColor(event);
+                  }}
+                  options={colors}
+                  selectedValues={fontColor}
                   showCheckbox
                   hideSelectedList
                   style={graphSelectStyle}

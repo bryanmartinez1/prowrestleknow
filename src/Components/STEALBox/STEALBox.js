@@ -6,9 +6,13 @@ export default function STEALBox({
   right,
   borderColor = "black",
   fillColor = "gold",
+  fontColor = "black",
 }) {
   return (
-    <div className="STEALBox" style={{ borderColor: borderColor }}>
+    <div
+      className="STEALBox"
+      style={{ borderColor: borderColor, color: fontColor }}
+    >
       <div
         className="SBLeft"
         style={{ borderColor: borderColor, backgroundColor: fillColor }}
