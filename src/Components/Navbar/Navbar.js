@@ -8,6 +8,7 @@ import compare from "../../Images/compare.png";
 import graph from "../../Images/chart.png";
 import info from "../../Images/info.png";
 import imagine from "../../Images/create.png";
+import HoverText from "../HoverText/HoverText";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -17,35 +18,65 @@ export default function Navbar() {
         ProWrestleKnow
       </button>
       <div className="content">
-        <IMGButton
-          src={search}
-          alt="Search"
-          imgFunction={() => navigate("/search")}
+        <HoverText
+          parent={
+            <IMGButton
+              src={search}
+              alt="Search"
+              imgFunction={() => navigate("/search")}
+            />
+          }
+          preview="Search"
         />
-        <IMGButton
-          src={compare}
-          alt="Compare"
-          imgFunction={() => navigate("/compare")}
+        <HoverText
+          parent={
+            <IMGButton
+              src={compare}
+              alt="Compare"
+              imgFunction={() => navigate("/compare")}
+            />
+          }
+          preview="Compare"
         />
-        <IMGButton
-          src={graph}
-          alt="Graph"
-          imgFunction={() => navigate("/graph")}
+        <HoverText
+          parent={
+            <IMGButton
+              src={graph}
+              alt="Graph"
+              imgFunction={() => navigate("/graph")}
+            />
+          }
+          preview="Graph"
         />
-        <IMGButton
-          src={imagine}
-          alt="Imagine"
-          imgFunction={() => navigate("/imagine")}
+        <HoverText
+          parent={
+            <IMGButton
+              src={imagine}
+              alt="Imagine"
+              imgFunction={() => navigate("/imagine")}
+            />
+          }
+          preview="Imagine"
         />
-        <IMGButton
-          src={controller}
-          alt="Games"
-          imgFunction={() => navigate("/games")}
+        <HoverText
+          parent={
+            <IMGButton
+              src={controller}
+              alt="Games"
+              imgFunction={() => navigate("/games")}
+            />
+          }
+          preview="Games"
         />
-        <IMGButton
-          src={info}
-          alt="Information"
-          imgFunction={() => navigate("/information")}
+        <HoverText
+          parent={
+            <IMGButton
+              src={info}
+              alt="Information"
+              imgFunction={() => navigate("/information")}
+            />
+          }
+          preview="Information"
         />
       </div>
     </div>

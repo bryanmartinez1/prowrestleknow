@@ -1,4 +1,5 @@
 import React from "react";
+import HoverText from "../HoverText/HoverText";
 import "./IMGButton.css";
 
 export default function IMGButton({ src, imgFunction, alt }) {

@@ -1,0 +1,23 @@
+.HoverText {
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+}
+
+.HoverText .preview {
+    visibility: hidden;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    box-sizing: border-box;
+    position: absolute;
+    z-index: 1;
+    top:100%;
+    right:50%;
+}
+
+.HoverText:hover .preview{
+    visibility: visible;
+}
