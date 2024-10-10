@@ -6,6 +6,7 @@ type ImgButtonProps = {
   altText: string;
   width?: number;
   height?: number;
+  onClick: () => void;
 };
 
 function ImgButton({
@@ -13,9 +14,10 @@ function ImgButton({
   altText,
   width = 100,
   height = 100,
+  onClick,
 }: ImgButtonProps) {
   return (
-    <button className="imgButton-button">
+    <button className="imgButton-button" onClick={onClick}>
       <img src={imageSrc} alt={altText} width={width} height={height} />
     </button>
   );
