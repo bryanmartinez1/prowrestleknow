@@ -1,7 +1,9 @@
 {
   "home": {
     "name": "ProWrestleKnow",
-    "route": "/"
+    "shortName": "PWK",
+    "route": "/",
+    "routeParameter": "/home"
   },
   "index": {
     "name": "Index",
@@ -39,5 +41,13 @@
     "name": "User",
     "route": "/user",
     "routeParameter": "/user/:userID"
+  },
+  "accessDenied": {
+    "name": "Access Denied",
+    "route": "/access-denied"
+  },
+  "settings": {
+    "name": "Settings",
+    "route": "/profile/settings"
   }
 }

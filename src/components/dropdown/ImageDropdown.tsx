@@ -10,6 +10,7 @@ type ImageDropdownProps = {
   toolTipText: string;
   buttonProps: any;
   height?: string;
+  optionsFontSize?: string;
 };
 
 export default function ImageDropdown({
@@ -19,6 +20,7 @@ export default function ImageDropdown({
   buttonProps,
   optionsFunctions,
   toolTipText,
+  optionsFontSize = "12px",
   height = "100%",
 }: ImageDropdownProps) {
   const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
@@ -71,6 +73,7 @@ export default function ImageDropdown({
               className="ddPara"
               onClick={() => optionSelect(index)}
               key={index}
+              style={{ fontSize: optionsFontSize }}
             >
               {option}
             </p>
