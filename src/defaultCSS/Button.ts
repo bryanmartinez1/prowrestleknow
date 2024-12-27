@@ -21,8 +21,7 @@ export const closeButtonProperties = {
   hoverBackgroundColor: "#DCDCDC",
   width: "30px",
   height: "30px",
-  margin: "0px 10px 0px 10px",
-  padding: "0px 10px 0px 10px",
+  margin: "10px 10px 0px 10px",
 };
 
 export const submitButton = {
