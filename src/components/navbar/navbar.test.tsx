@@ -1,16 +1,16 @@
-import React from "react";
+import React, { act } from "react";
 import { render, screen } from "@testing-library/react";
-import App from "./App";
+import Navbar from "./Navbar";
 import { BrowserRouter } from "react-router-dom";
 
-test("renders learn react link", () => {
+test("Navbar renders", () => {
   render(
     <BrowserRouter
       future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
     >
-      <App />
+      <Navbar />
     </BrowserRouter>
   );
-  const linkElement = screen.getByText(/ProWrestleKnow/i);
-  expect(linkElement).toBeInTheDocument();
+  const navElement = screen.getByText(/ProWrestleKnow/i);
+  expect(navElement).toBeInTheDocument();
 });

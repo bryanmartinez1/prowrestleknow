@@ -1,4 +1,10 @@
+@font-face {
+  font-family: Lexend;
+  src: url(/src/font/LexendGiga-VariableFont_wght.ttf);
+}
+
 .App {
   width: 100vw;
   height: 100vh;
+  font-family: Lexend;
 }
