@@ -65,7 +65,7 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <div className="navbar-title" onClick={() => navigate(routes.home.route)}>
-        {navbarWidth >= 300 ? routes.home.name : routes.home.shortName}
+        {navbarWidth >= 440 ? routes.home.name : routes.home.shortName}
       </div>
       {navbarWidth >= 880 ? (
         <div className="navbar-buttons">
