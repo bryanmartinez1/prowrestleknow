@@ -1,6 +1,6 @@
 # ProWrestleKnow
 
-ProWrestleKnow is a encyclopedia and data viosualzier of pro wrestling, allowing users to find out about and analyze wrestlers, companies, titles, and much more.
+ProWrestleKnow is a encyclopedia and data visualzier of pro wrestling, allowing users to find out about and analyze wrestlers, companies, titles, and much more.
 
 ## Link
 
@@ -10,7 +10,7 @@ ProWrestleKnow is a encyclopedia and data viosualzier of pro wrestling, allowing
 
 Clone this repo. You need `npm` and `node` installed
 
-Install dependicies
+Install dependencies
 
 `npm install`
 
@@ -22,24 +22,30 @@ Visit
 
 `http://localhost:3000/`
 
-Run Test
+Run Tests
 
 `npm test`
 
+## Tech Stack
+
+Front end - TypeScript
+
+- AWS S3
+
 ## Documentation
+
+### Google Doc
+
+### Figma
 
 ## Features
 
 ### Home
 
-### Search
+### Showcase
 
-### Database
-
-### Analytics Hub
+### Visualize
 
 ### Imagine
 
-### Help Center
-
-### Profile
+### Data ring

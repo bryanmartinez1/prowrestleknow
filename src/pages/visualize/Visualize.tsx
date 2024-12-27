@@ -2,7 +2,7 @@ import React from "react";
 import "./visualize.css";
 import { useNavigate } from "react-router-dom";
 
-function Visualize() {
+export default function Visualize() {
   const navigate = useNavigate();
   return (
     <div className="Visualize">
@@ -15,5 +15,3 @@ function Visualize() {
     </div>
   );
 }
-
-export default Visualize;

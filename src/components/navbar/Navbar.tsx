@@ -1,67 +1,67 @@
 import React from "react";
 import "./navbar.css";
-import ImgButton from "../imgButton/imgButton";
-import search from "../../icons/search.svg";
-import database from "../../icons/database.svg";
-import visualize from "../../icons/pie-chart.svg";
-import imagine from "../../icons/pen-tool.svg";
-import help from "../../icons/help-circle.svg";
-import user from "../../icons/user.svg";
 import { useNavigate } from "react-router-dom";
+import WordButton from "../buttons/WordButton";
+import {
+  imageButtonProperties,
+  wordButtonProperties,
+} from "../../defaultCSS/Button";
+import routes from "../../AppRoutes.json";
+import helpIcon from "../../icons/help-circle.svg";
+import profileIcon from "../../icons/user.svg";
+import ImageButton from "../buttons/ImageButton";
 
-function Navbar() {
+export default function Navbar() {
   const navigate = useNavigate();
   return (
     <div className="navbar">
-      <div className="navbar-title" onClick={() => navigate("/")}>
-        ProWrestleKnow
+      <div className="navbar-title" onClick={() => navigate(routes.home.route)}>
+        {routes.home.name}
       </div>
       <div className="navbar-buttons">
-        <ImgButton
-          imageSrc={search}
-          altText="Search"
-          width={40}
-          height={50}
-          onClick={() => navigate("/search")}
+        <WordButton
+          text={routes.index.name}
+          onClick={() => navigate(routes.index.route)}
+          {...wordButtonProperties}
+          type="button"
         />
-        <ImgButton
-          imageSrc={database}
-          altText="Database"
-          width={40}
-          height={50}
-          onClick={() => navigate("/database")}
+        <WordButton
+          text="Build"
+          onClick={() => {}}
+          {...wordButtonProperties}
+          type="button"
         />
-        <ImgButton
-          imageSrc={visualize}
-          altText="Visualize"
-          width={40}
-          height={50}
-          onClick={() => navigate("/visualize")}
+        <WordButton
+          text={routes.showcase.name}
+          onClick={() => navigate(routes.showcase.route)}
+          {...wordButtonProperties}
+          type="button"
         />
-        <ImgButton
-          imageSrc={imagine}
-          altText="Imagine"
-          width={40}
-          height={50}
-          onClick={() => navigate("/imagine")}
+        <WordButton
+          text={routes.dataRing.name}
+          onClick={() => navigate(routes.dataRing.route)}
+          {...wordButtonProperties}
+          type="button"
         />
-        <ImgButton
-          imageSrc={help}
-          altText="Help"
-          width={40}
-          height={50}
-          onClick={() => navigate("/help")}
-        />
-        <ImgButton
-          imageSrc={user}
-          altText="User"
-          width={40}
-          height={50}
-          onClick={() => navigate("/profile")}
-        />
+        <div className="navbar-image-buttons">
+          <ImageButton
+            src={helpIcon}
+            alt={routes.help.name}
+            toolTipText={routes.help.name}
+            onClick={() => navigate(routes.help.route)}
+            {...imageButtonProperties}
+            type="button"
+          />
+          <ImageButton
+            src={profileIcon}
+            alt={routes.profile.name}
+            toolTipText={routes.profile.name}
+            onClick={() => navigate(routes.profile.route)}
+            {...imageButtonProperties}
+            type="button"
+          />
+        </div>
       </div>
     </div>
   );
 }
-
-export default Navbar;

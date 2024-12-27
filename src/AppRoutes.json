@@ -1,0 +1,43 @@
+{
+  "home": {
+    "name": "ProWrestleKnow",
+    "route": "/"
+  },
+  "index": {
+    "name": "Index",
+    "route": "/index",
+    "routeParameter": "/index/:indexID"
+  },
+  "showcase": {
+    "name": "Showcase",
+    "route": "/showcase",
+    "routeParameter": "/showcase/:showcaseID"
+  },
+  "imagine": {
+    "name": "Imagine",
+    "route": "/imagine"
+  },
+  "visualize": {
+    "name": "Visualize",
+    "route": "/visualize"
+  },
+  "dataRing": {
+    "name": "Data ring",
+    "route": "/data-ring",
+    "routeParameter": "/data-ring/:dataRingID"
+  },
+  "help": {
+    "name": "Help",
+    "route": "/help",
+    "routeParameter": "/help/:helpID"
+  },
+  "profile": {
+    "name": "Profile",
+    "route": "/profile"
+  },
+  "user": {
+    "name": "User",
+    "route": "/user",
+    "routeParameter": "/user/:userID"
+  }
+}
