@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import WordButton from "../buttons/WordButton";
 import authConstants from "../../constants/Auth.json";
 import "./navbar.css";
-import { wordButtonProperties, submitButton } from "../../defaultCSS/Button";
+import {
+  modalWordButtonProperties,
+  submitButton,
+} from "../../defaultCSS/Button";
 
 interface SignUpForm {
   email: string;
@@ -105,7 +108,7 @@ export default function SignUp({ goToLogIn }: SignUpProps) {
           <WordButton
             text={authConstants.account.haveAccount}
             onClick={() => goToLogIn()}
-            {...wordButtonProperties}
+            {...modalWordButtonProperties}
             padding="5px 5px 5px 5px"
             fontSize="14px"
           />

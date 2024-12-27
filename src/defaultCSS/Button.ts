@@ -8,6 +8,16 @@ export const wordButtonProperties = {
   fontFamily: "Lexend",
 };
 
+export const modalWordButtonProperties = {
+  fontSize: "16px",
+  border: "none",
+  margin: "0px 10px",
+  height: "100%",
+  borderRadius: "5%",
+  hoverBackgroundColor: "#D3D3D3",
+  fontFamily: "Lexend",
+};
+
 export const imageButtonProperties = {
   borderRadius: "100%",
   hoverBackgroundColor: "#DCDCDC",

@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import "./navbar.css";
 import authConstants from "../../constants/Auth.json";
 import WordButton from "../buttons/WordButton";
-import { wordButtonProperties, submitButton } from "../../defaultCSS/Button";
+import {
+  modalWordButtonProperties,
+  submitButton,
+} from "../../defaultCSS/Button";
 
 interface LogInForm {
   email: string;
@@ -54,14 +57,14 @@ export default function LogIn({ goToSignUp }: LogInProps) {
           <WordButton
             text={authConstants.account.dontHaveAccount}
             onClick={() => goToSignUp()}
-            {...wordButtonProperties}
+            {...modalWordButtonProperties}
             padding="5px 5px 5px 5px"
             fontSize="14px"
           />
           <WordButton
             text={authConstants.password.forgot}
             onClick={() => goToSignUp()}
-            {...wordButtonProperties}
+            {...modalWordButtonProperties}
             padding="5px 5px 5px 5px"
             fontSize="14px"
           />
