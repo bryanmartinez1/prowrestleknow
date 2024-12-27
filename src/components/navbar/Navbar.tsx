@@ -10,6 +10,7 @@ import routes from "../../AppRoutes.json";
 import helpIcon from "../../icons/help-circle.svg";
 import profileIcon from "../../icons/user.svg";
 import ImageButton from "../buttons/ImageButton";
+import WordDropdown from "../dropdown/WordDropdown";
 
 export default function Navbar() {
   const navigate = useNavigate();
@@ -25,11 +26,15 @@ export default function Navbar() {
           {...wordButtonProperties}
           type="button"
         />
-        <WordButton
-          text="Build"
-          onClick={() => {}}
-          {...wordButtonProperties}
-          type="button"
+        <WordDropdown
+          title="Build"
+          options={[routes.visualize.name, routes.imagine.name]}
+          optionsFunctions={[
+            () => navigate(routes.visualize.route),
+            () => navigate(routes.imagine.route),
+          ]}
+          buttonProps={wordButtonProperties}
+          optionsFontSize="14px"
         />
         <WordButton
           text={routes.showcase.name}
