@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Navbar from "./components/navbar/Navbar";
 import { Route, Routes } from "react-router-dom";
-import routes from "./AppRoutes.json";
+import routes from "./constants/AppRoutes.json";
 import Visualize from "./pages/Visualize/Visualize";
 import Home from "./pages/Home/Home";
 import Imagine from "./pages/Imagine/Imagine";

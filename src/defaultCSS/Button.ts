@@ -15,3 +15,23 @@ export const imageButtonProperties = {
   height: "30px",
   fontFamily: "Lexend",
 };
+
+export const closeButtonProperties = {
+  borderRadius: "100%",
+  hoverBackgroundColor: "#DCDCDC",
+  width: "30px",
+  height: "30px",
+  margin: "0px 10px 0px 10px",
+  padding: "0px 10px 0px 10px",
+};
+
+export const submitButton = {
+  fontSize: "16px",
+  backgroundColor: "#04AA6D",
+  hoverBackgroundColor: "#03915d",
+  border: "none",
+  margin: "10px 0px 0px 0px",
+  padding: "10px 10px 10px 10px",
+  height: "100%",
+  borderRadius: "5%",
+};

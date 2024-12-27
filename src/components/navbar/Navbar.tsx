@@ -6,18 +6,36 @@ import {
   imageButtonProperties,
   wordButtonProperties,
 } from "../../defaultCSS/Button";
-import routes from "../../AppRoutes.json";
+import routes from "../../constants/AppRoutes.json";
 import menuIcon from "../../icons/more-horizontal.svg";
 import helpIcon from "../../icons/help-circle.svg";
 import userIcon from "../../icons/user.svg";
 import ImageButton from "../buttons/ImageButton";
 import WordDropdown from "../dropdown/WordDropdown";
 import ImageDropdown from "../dropdown/ImageDropdown";
+import Modal from "../modal/Modal";
+import LogIn from "./LogIn";
+import SignUp from "./SignUp";
+import { authModalProperties } from "../../defaultCSS/Modal";
+import authConstants from "../../constants/Auth.json";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
   const [navbarWidth, setNavbarWidth] = useState<number>(window.innerWidth);
+
+  const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
+  const [openLogInModal, setLogInModal] = useState<boolean>(false);
+  const [openSignUpModal, setSignUpModal] = useState<boolean>(false);
+
+  const toggleLogInModal = () => {
+    setSignUpModal(false);
+    setLogInModal(!openLogInModal);
+  };
+
+  const toggleSignUpModal = () => {
+    setLogInModal(false);
+    setSignUpModal(!openSignUpModal);
+  };
 
   useEffect(() => {
     const handleResize = () => {
@@ -41,7 +59,7 @@ export default function Navbar() {
         () => navigate(routes.settings.route),
         () => {},
       ]
-    : [() => {}, () => {}];
+    : [() => toggleLogInModal(), () => toggleSignUpModal()];
 
   const menuOptions = [
     routes.index.name,
@@ -132,6 +150,21 @@ export default function Navbar() {
           />
         </div>
       )}
+
+      <Modal
+        show={openLogInModal}
+        hide={toggleLogInModal}
+        content={<LogIn goToSignUp={toggleSignUpModal} />}
+        title={authConstants.auth.logIn}
+        {...authModalProperties}
+      />
+      <Modal
+        show={openSignUpModal}
+        hide={toggleSignUpModal}
+        content={<SignUp goToLogIn={toggleLogInModal} />}
+        title={authConstants.auth.signUp}
+        {...authModalProperties}
+      />
     </div>
   );
 }
