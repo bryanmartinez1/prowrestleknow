@@ -1,4 +1,4 @@
-.homePage {
+.home-page {
   width: 100vw;
   height: 100%;
   display: flex;
@@ -6,7 +6,7 @@
   flex-direction: column;
 }
 
-.homeImage {
+.home-image {
   width: 100%;
   height: 50%;
 }
