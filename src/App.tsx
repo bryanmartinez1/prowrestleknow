@@ -24,24 +24,26 @@ export default function App() {
   return (
     <div className="App">
       <Navbar />
-      <Routes>
-        <Route path={routes.home.route} element={<Home />} />
-        <Route path={routes.index.route} element={<SearchIndex />} />
-        <Route path={routes.index.routeParameter} element={<Index />} />
-        <Route path={routes.visualize.route} element={<Visualize />} />
-        <Route path={routes.imagine.route} element={<Imagine />} />
-        <Route path={routes.showcase.route} element={<SearchShowcase />} />
-        <Route path={routes.showcase.routeParameter} element={<Showcase />} />
-        <Route path={routes.dataRing.route} element={<SearchDataRing />} />
-        <Route path={routes.dataRing.routeParameter} element={<DataRing />} />
-        <Route path={routes.profile.route} element={<Profile />} />
-        <Route path={routes.user.route} element={<SearchUser />} />
-        <Route path={routes.user.routeParameter} element={<User />} />
-        <Route path={routes.help.route} element={<SearchHelp />} />
-        <Route path={routes.help.routeParameter} element={<Help />} />
-        <Route path={routes.accessDenied.route} element={<AccessDenied />} />
-        <Route path={routes.settings.route} element={<Settings />} />
-      </Routes>
+      <main className="app-main">
+        <Routes>
+          <Route path={routes.home.route} element={<Home />} />
+          <Route path={routes.index.route} element={<SearchIndex />} />
+          <Route path={routes.index.routeParameter} element={<Index />} />
+          <Route path={routes.visualize.route} element={<Visualize />} />
+          <Route path={routes.imagine.route} element={<Imagine />} />
+          <Route path={routes.showcase.route} element={<SearchShowcase />} />
+          <Route path={routes.showcase.routeParameter} element={<Showcase />} />
+          <Route path={routes.dataRing.route} element={<SearchDataRing />} />
+          <Route path={routes.dataRing.routeParameter} element={<DataRing />} />
+          <Route path={routes.profile.route} element={<Profile />} />
+          <Route path={routes.user.route} element={<SearchUser />} />
+          <Route path={routes.user.routeParameter} element={<User />} />
+          <Route path={routes.help.route} element={<SearchHelp />} />
+          <Route path={routes.help.routeParameter} element={<Help />} />
+          <Route path={routes.accessDenied.route} element={<AccessDenied />} />
+          <Route path={routes.settings.route} element={<Settings />} />
+        </Routes>
+      </main>
     </div>
   );
 }

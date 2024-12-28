@@ -9,9 +9,12 @@ export default function SearchHelp() {
   };
 
   useEffect(() => {
-    console.log("Home Search: " + helpSearch);
+    console.log("Help Search: " + helpSearch);
   }, [helpSearch]);
 
-  <Searchbar onSearch={handleSearch} />;
-  return <div className="help-page">Search Help</div>;
+  return (
+    <div className="help-page">
+      <Searchbar onSearch={handleSearch} />;
+    </div>
+  );
 }
