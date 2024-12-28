@@ -1,0 +1,15 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+.searchbar-input {
+  flex: 1;
+  font-family: Lexend;
+  border: none;
+  outline: none;
+}

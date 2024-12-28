@@ -1,9 +1,20 @@
+export const homeButtonProperties = {
+  fontSize: "2rem",
+  border: "none",
+  margin: "0px 10px",
+  height: "100%",
+  borderRadius: "10px",
+  hoverBackgroundColor: "#d43632",
+  fontFamily: "Lexend",
+  fontWeight: "bold",
+};
+
 export const wordButtonProperties = {
   fontSize: "16px",
   border: "none",
   margin: "0px 10px",
   height: "100%",
-  borderRadius: "5%",
+  borderRadius: "10px",
   hoverBackgroundColor: "#d43632",
   fontFamily: "Lexend",
 };

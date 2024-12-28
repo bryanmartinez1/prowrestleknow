@@ -3,13 +3,14 @@ import "./navbar.css";
 import { useNavigate } from "react-router-dom";
 import WordButton from "../buttons/WordButton";
 import {
+  homeButtonProperties,
   imageButtonProperties,
   wordButtonProperties,
 } from "../../defaultCSS/Button";
 import routes from "../../constants/AppRoutes.json";
-import menuIcon from "../../icons/more-horizontal.svg";
-import helpIcon from "../../icons/help-circle.svg";
-import userIcon from "../../icons/user.svg";
+import menuIcon from "../../assets/icons/more-horizontal.svg";
+import helpIcon from "../../assets/icons/help-circle.svg";
+import userIcon from "../../assets/icons/user.svg";
 import ImageButton from "../buttons/ImageButton";
 import WordDropdown from "../dropdown/WordDropdown";
 import ImageDropdown from "../dropdown/ImageDropdown";
@@ -81,10 +82,16 @@ export default function Navbar() {
   ];
 
   return (
-    <div className="navbar">
-      <div className="navbar-title" onClick={() => navigate(routes.home.route)}>
+    <div className="navbar" data-testid="navbar">
+      {/* <div className="navbar-title" onClick={() => navigate(routes.home.route)}>
         {navbarWidth >= 440 ? routes.home.name : routes.home.shortName}
-      </div>
+      </div> */}
+      <WordButton
+        text={navbarWidth >= 440 ? routes.home.name : routes.home.shortName}
+        onClick={() => navigate(routes.home.route)}
+        {...homeButtonProperties}
+        type="button"
+      />
       {navbarWidth >= 880 ? (
         <div className="navbar-buttons">
           <WordButton

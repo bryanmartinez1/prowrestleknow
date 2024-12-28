@@ -2,8 +2,8 @@ import React from "react";
 import { Tooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import "./button.css";
-import ChevronUpIcon from "../../icons/chevron-up.svg";
-import ChevronDownIcon from "../../icons/chevron-down.svg";
+import ChevronUpIcon from "../../assets/icons/chevron-up.svg";
+import ChevronDownIcon from "../../assets/icons/chevron-down.svg";
 
 type ImageButtonProps = {
   src: string;

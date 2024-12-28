@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, ReactNode } from "react";
 import ImageButton from "../buttons/ImageButton";
-import Close from "../../icons/x.svg";
+import Close from "../../assets/icons/x.svg";
 import "./modal.css";
 import { closeButtonProperties } from "../../defaultCSS/Button";
 
