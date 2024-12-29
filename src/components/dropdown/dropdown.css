@@ -19,11 +19,9 @@
 .ddPara {
   cursor: pointer;
   box-sizing: border-box;
-  padding: 5px;
-  font-size: 16px;
+  padding: 10px 5px;
   border-radius: 5px;
 }
 .ddPara:hover {
   background-color: #d3d3d3;
-  font-weight: bold;
 }

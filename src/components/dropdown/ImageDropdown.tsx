@@ -11,6 +11,7 @@ type ImageDropdownProps = {
   buttonProps: any;
   height?: string;
   optionsFontSize?: string;
+  fontFamily?: string;
 };
 
 export default function ImageDropdown({
@@ -22,6 +23,7 @@ export default function ImageDropdown({
   toolTipText,
   optionsFontSize = "12px",
   height = "100%",
+  fontFamily = "Lexend",
 }: ImageDropdownProps) {
   const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
 
@@ -56,7 +58,7 @@ export default function ImageDropdown({
     <div
       className="img-dd-dropdown-container"
       ref={dropdownRef}
-      style={{ height: height }}
+      style={{ height: height, fontFamily }}
     >
       <ImageButton
         src={src}

@@ -9,6 +9,7 @@ type WordDropDownProps = {
   buttonProps: any;
   height?: string;
   optionsFontSize?: string;
+  fontFamily?: string;
 };
 
 export default function WordDropdown({
@@ -18,6 +19,7 @@ export default function WordDropdown({
   optionsFunctions,
   optionsFontSize = "12px",
   height = "100%",
+  fontFamily = "Lexend",
 }: WordDropDownProps) {
   const [isDropDownOpen, setDropDownOpen] = useState<boolean>(false);
 
@@ -52,7 +54,7 @@ export default function WordDropdown({
     <div
       className="img-dd-dropdown-container"
       ref={dropdownRef}
-      style={{ height: height }}
+      style={{ height: height, fontFamily }}
     >
       <WordButton
         text={title}
@@ -64,14 +66,14 @@ export default function WordDropdown({
       {isDropDownOpen && (
         <div className="img-dd-dropdown-content">
           {options.map((option, index) => (
-            <p
+            <div
               className="ddPara"
               onClick={() => optionSelect(index)}
               key={index}
               style={{ fontSize: optionsFontSize }}
             >
               {option}
-            </p>
+            </div>
           ))}
         </div>
       )}
