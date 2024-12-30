@@ -1,4 +1,4 @@
-import React, { useEffect, useState, KeyboardEvent } from "react";
+import React, { useState, KeyboardEvent } from "react";
 import "./search.css";
 import ImageButton from "../buttons/ImageButton";
 import { imageButtonProperties } from "../../defaultCSS/Button";
@@ -9,19 +9,18 @@ interface SearchBarProps {
 }
 
 export default function Searchbar({ onSearch }: SearchBarProps) {
-  const [query, setQuery] = useState("");
+  const [inputValue, setInputValue] = useState<string>("");
 
-  function newQuery() {
-    const searchInput = document.getElementById(
-      "searchInput"
-    ) as HTMLInputElement | null;
-    const searchInputValue = searchInput?.value?.toLowerCase() ?? "";
-    setQuery(searchInputValue);
-  }
+  const handleSearch = () => {
+    const trimmedQuery = inputValue.trim().toLowerCase();
+    onSearch(trimmedQuery);
+  };
 
-  useEffect(() => {
-    onSearch(query);
-  }, [query, setQuery]);
+  const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
+    if (event.key === "Enter") {
+      handleSearch();
+    }
+  };
 
   return (
     <div className="search-bar">
@@ -30,7 +29,7 @@ export default function Searchbar({ onSearch }: SearchBarProps) {
         alt="Search"
         toolTipText="Search"
         type="button"
-        onClick={() => {}}
+        onClick={handleSearch}
         {...imageButtonProperties}
       />
       <input
@@ -38,8 +37,9 @@ export default function Searchbar({ onSearch }: SearchBarProps) {
         className="searchbar-input"
         type="text"
         placeholder="Search Here..."
-        value={query}
-        onChange={() => newQuery()}
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+        onKeyDown={handleKeyPress}
       />
     </div>
   );

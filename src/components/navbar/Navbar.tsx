@@ -83,9 +83,6 @@ export default function Navbar() {
 
   return (
     <div className="navbar" data-testid="navbar">
-      {/* <div className="navbar-title" onClick={() => navigate(routes.home.route)}>
-        {navbarWidth >= 440 ? routes.home.name : routes.home.shortName}
-      </div> */}
       <WordButton
         text={navbarWidth >= 440 ? routes.home.name : routes.home.shortName}
         onClick={() => navigate(routes.home.route)}
@@ -150,7 +147,7 @@ export default function Navbar() {
             alt={"Menu"}
             toolTipText={"Menu"}
             height="30px"
-            optionsFontSize="12px"
+            optionsFontSize="14px"
             buttonProps={imageButtonProperties}
             options={menuOptions}
             optionsFunctions={menuOptionsFunctions}
