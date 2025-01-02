@@ -23,6 +23,7 @@ type ImageButtonProps = {
   isWordDropDownOpen?: boolean;
   fontFamily?: string;
   type?: "button" | "submit" | "reset";
+  place?: any;
 };
 
 export default function ImageButton({
@@ -42,6 +43,7 @@ export default function ImageButton({
   isWordDropDownOpen = false,
   type = "button",
   fontFamily = "Lexend",
+  place = "bottom-start",
   onClick,
 }: ImageButtonProps) {
   const imageButtonStyle: React.CSSProperties = {
@@ -72,6 +74,7 @@ export default function ImageButton({
         onClick={onClick}
         data-tooltip-content={toolTipText}
         data-tooltip-id={`${toolTipText}-id`}
+        data-testid="image_button"
       >
         <img src={src} alt={alt} width={`${width}px`} height={height} />
         {isDropDown ? (
@@ -82,7 +85,7 @@ export default function ImageButton({
           />
         ) : null}
       </button>
-      <Tooltip id={`${toolTipText}-id`} place="bottom-start" />
+      <Tooltip id={`${toolTipText}-id`} place={place} />
     </>
   );
 }

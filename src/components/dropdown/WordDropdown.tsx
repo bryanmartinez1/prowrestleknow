@@ -55,6 +55,7 @@ export default function WordDropdown({
       className="img-dd-dropdown-container"
       ref={dropdownRef}
       style={{ height: height, fontFamily }}
+      data-testid="word dropdown"
     >
       <WordButton
         text={title}

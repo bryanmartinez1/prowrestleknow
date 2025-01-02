@@ -50,6 +50,7 @@ export default function Modal({
       className="modalContent"
       style={{ width, height, maxWidth, maxHeight, minHeight, minWidth }}
       ref={modalRef}
+      data-testid="modal"
     >
       <div className="modalCloseHeader">
         <div className="modalTitle">{title}</div>

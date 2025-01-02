@@ -23,7 +23,7 @@ export default function Searchbar({ onSearch }: SearchBarProps) {
   };
 
   return (
-    <div className="search-bar">
+    <div className="search-bar" data-testid="searchbar">
       <ImageButton
         src={searchIcon}
         alt="Search"

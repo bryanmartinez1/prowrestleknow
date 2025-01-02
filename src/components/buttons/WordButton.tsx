@@ -66,6 +66,7 @@ export default function WordButton({
         (e.currentTarget.style.backgroundColor = backgroundColor)
       }
       onClick={onClick}
+      data-testid="word-button"
     >
       {text}
       {isDropDown ? (

@@ -59,6 +59,7 @@ export default function ImageDropdown({
       className="img-dd-dropdown-container"
       ref={dropdownRef}
       style={{ height: height, fontFamily }}
+      data-testid="image dropdown"
     >
       <ImageButton
         src={src}

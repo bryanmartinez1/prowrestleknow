@@ -37,6 +37,14 @@ export const imageButtonProperties = {
   fontFamily: "Lexend",
 };
 
+export const sidebarImageButtonProperties = {
+  borderRadius: "5px",
+  hoverBackgroundColor: "#DCDCDC",
+  width: "40px",
+  height: "40px",
+  fontFamily: "Lexend",
+};
+
 export const closeButtonProperties = {
   borderRadius: "100%",
   hoverBackgroundColor: "#DCDCDC",
