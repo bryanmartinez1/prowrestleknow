@@ -27,6 +27,6 @@ describe("Imagine", () => {
 
     expect(screen.getByTestId("imagine")).toBeInTheDocument();
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
-    expect(screen.getAllByTestId("image_button").length).toBe(6);
+    expect(screen.getAllByTestId("image_button").length).toBe(8);
   });
 });

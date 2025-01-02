@@ -22,6 +22,8 @@ export default function Imagine() {
     story_map,
     character,
     title,
+    character,
+    title,
   ];
   return (
     <div className="imagine-page" data-testid="imagine">

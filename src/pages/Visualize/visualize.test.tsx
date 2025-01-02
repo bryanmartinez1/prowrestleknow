@@ -27,6 +27,6 @@ describe("Visualize", () => {
 
     expect(screen.getByTestId("visualize")).toBeInTheDocument();
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
-    expect(screen.getAllByTestId("image_button").length).toBe(4);
+    expect(screen.getAllByTestId("image_button").length).toBe(6);
   });
 });

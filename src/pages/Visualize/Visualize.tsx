@@ -8,7 +8,14 @@ import pie_chart from "../../assets/icons/visualize/pie-chart.svg";
 import timeline from "../../assets/icons/visualize/activity.svg";
 
 export default function Visualize() {
-  const options_images = [table, bar_chart, pie_chart, timeline];
+  const options_images = [
+    table,
+    bar_chart,
+    pie_chart,
+    timeline,
+    bar_chart,
+    pie_chart,
+  ];
   return (
     <div className="visualize-page" data-testid="visualize">
       <Sidebar options={sidebar_options} image_array={options_images} />

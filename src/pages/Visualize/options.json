@@ -10,5 +10,11 @@
   },
   {
     "name": "Timeline"
+  },
+  {
+    "name": "Scatter"
+  },
+  {
+    "name": "Line"
   }
 ]
