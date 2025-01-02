@@ -6,21 +6,7 @@ import {
   modalWordButtonProperties,
   submitButton,
 } from "../../defaultCSS/Button";
-
-interface SignUpForm {
-  email: string;
-  firstName: string;
-  lastName: string;
-}
-
-interface Passwords {
-  password: string;
-  confirmPassword: string;
-}
-
-type SignUpProps = {
-  goToLogIn: () => void;
-};
+import { Passwords, SignUpForm, SignUpProps } from "../../types/components";
 
 export default function SignUp({ goToLogIn }: SignUpProps) {
   const [signupForm, setSignupForm] = useState<SignUpForm>({

@@ -4,7 +4,7 @@ import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 
 describe("App", () => {
-  test("renders learn react link", () => {
+  test("renders App component", () => {
     render(
       <BrowserRouter
         future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
@@ -12,7 +12,6 @@ describe("App", () => {
         <App />
       </BrowserRouter>
     );
-    const linkElement = screen.getByText(/ProWrestleKnow/i);
-    expect(linkElement).toBeInTheDocument();
+    expect(screen.getByTestId("app")).toBeInTheDocument();
   });
 });

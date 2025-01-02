@@ -3,12 +3,9 @@ import "./search.css";
 import ImageButton from "../buttons/ImageButton";
 import { imageButtonProperties } from "../../defaultCSS/Button";
 import searchIcon from "../../assets/icons/search.svg";
+import { SearchbarProps } from "../../types/components";
 
-interface SearchBarProps {
-  onSearch: (query: string) => void;
-}
-
-export default function Searchbar({ onSearch }: SearchBarProps) {
+export default function Searchbar({ onSearch }: SearchbarProps) {
   const [inputValue, setInputValue] = useState<string>("");
 
   const handleSearch = () => {

@@ -1,18 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import ImageButton from "../buttons/ImageButton";
 import "./dropdown.css";
-
-type ImageDropdownProps = {
-  src: string;
-  alt: string;
-  options: string[];
-  optionsFunctions: (() => void)[];
-  toolTipText: string;
-  buttonProps: any;
-  height?: string;
-  optionsFontSize?: string;
-  fontFamily?: string;
-};
+import { ImageDropdownProps } from "../../types/components";
 
 export default function ImageDropdown({
   src,

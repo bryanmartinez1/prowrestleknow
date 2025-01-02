@@ -4,27 +4,7 @@ import "react-tooltip/dist/react-tooltip.css";
 import "./button.css";
 import ChevronUpIcon from "../../assets/icons/chevron-up.svg";
 import ChevronDownIcon from "../../assets/icons/chevron-down.svg";
-
-type ImageButtonProps = {
-  src: string;
-  alt: string;
-  toolTipText: string;
-  onClick: () => void;
-  fontSize?: string;
-  backgroundColor?: string;
-  hoverBackgroundColor?: string;
-  padding?: string;
-  margin?: string;
-  border?: string;
-  width?: string;
-  height?: string;
-  borderRadius?: string;
-  isDropDown?: boolean;
-  isWordDropDownOpen?: boolean;
-  fontFamily?: string;
-  type?: "button" | "submit" | "reset";
-  place?: any;
-};
+import { ImageButtonProps } from "../../types/components";
 
 export default function ImageButton({
   src,

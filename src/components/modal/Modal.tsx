@@ -1,21 +1,9 @@
-import React, { useEffect, useRef, ReactNode } from "react";
+import React, { useEffect, useRef } from "react";
 import ImageButton from "../buttons/ImageButton";
 import Close from "../../assets/icons/x.svg";
 import "./modal.css";
 import { closeButtonProperties } from "../../defaultCSS/Button";
-
-export interface ModalProps {
-  show: boolean;
-  hide: () => void;
-  content: ReactNode;
-  width?: string;
-  height?: string;
-  title?: string;
-  maxWidth?: string;
-  maxHeight?: string;
-  minWidth?: string;
-  minHeight?: string;
-}
+import { ModalProps } from "../../types/components";
 
 export default function Modal({
   show,

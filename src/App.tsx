@@ -22,7 +22,7 @@ import Settings from "./pages/Settings/Settings";
 
 export default function App() {
   return (
-    <div className="App">
+    <div className="App" data-testid="app">
       <Navbar />
       <main className="app-main">
         <Routes>

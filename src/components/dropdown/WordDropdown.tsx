@@ -1,16 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./dropdown.css";
 import WordButton from "../buttons/WordButton";
-
-type WordDropDownProps = {
-  title: string;
-  options: string[];
-  optionsFunctions: (() => void)[];
-  buttonProps: any;
-  height?: string;
-  optionsFontSize?: string;
-  fontFamily?: string;
-};
+import { WordDropDownProps } from "../../types/components";
 
 export default function WordDropdown({
   title,

@@ -3,15 +3,7 @@ import "./sidebar.css";
 import ImageButton from "../../components/buttons/ImageButton";
 
 import { sidebarImageButtonProperties } from "../../defaultCSS/Button";
-
-type SidebarOptions = {
-  name: string;
-};
-
-type SidebarType = {
-  options: SidebarOptions[];
-  image_array: string[];
-};
+import { SidebarType } from "../../types/components";
 
 export default function Sidebar({ options, image_array }: SidebarType) {
   return (
