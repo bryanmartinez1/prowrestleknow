@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import React, { ReactNode } from "react";
 
 export type ImageButtonProps = {
   src: string;
@@ -53,6 +53,7 @@ export type ModalProps = {
   maxHeight?: string;
   minWidth?: string;
   minHeight?: string;
+  titleSize?: string;
 };
 
 export type Passwords = {
@@ -69,6 +70,8 @@ export type SidebarOptions = {
 };
 
 export type SidebarType = {
+  selected: string;
+  setSelected: React.Dispatch<React.SetStateAction<string>>;
   options: SidebarOptions[];
   image_array: string[];
 };

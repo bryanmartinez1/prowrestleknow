@@ -16,6 +16,7 @@ export default function Modal({
   maxHeight = "none",
   minWidth = "none",
   minHeight = "none",
+  titleSize = "32px",
 }: ModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
   const handleClickOutside = (event: MouseEvent) => {
@@ -41,7 +42,9 @@ export default function Modal({
       data-testid="modal"
     >
       <div className="modalCloseHeader">
-        <div className="modalTitle">{title}</div>
+        <div className="modalTitle" style={{ fontSize: titleSize }}>
+          {title}
+        </div>
         <ImageButton
           src={Close}
           alt="Close"

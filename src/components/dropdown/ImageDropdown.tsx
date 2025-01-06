@@ -48,7 +48,7 @@ export default function ImageDropdown({
       className="img-dd-dropdown-container"
       ref={dropdownRef}
       style={{ height: height, fontFamily }}
-      data-testid="image dropdown"
+      data-testid="image-dropdown"
     >
       <ImageButton
         src={src}
@@ -61,14 +61,14 @@ export default function ImageDropdown({
       {isDropDownOpen && (
         <div className="img-dd-dropdown-content">
           {options.map((option, index) => (
-            <p
+            <div
               className="ddPara"
               onClick={() => optionSelect(index)}
               key={index}
               style={{ fontSize: optionsFontSize }}
             >
               {option}
-            </p>
+            </div>
           ))}
         </div>
       )}

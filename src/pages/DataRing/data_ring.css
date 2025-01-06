@@ -1,7 +1,26 @@
 .data_ring-page {
-  width: 100vw;
-  height: 100%;
+  flex: 1;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
+}
+
+.data-ring-header {
+  box-sizing: border-box;
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+.data-ring-create {
+  flex: 1;
+  background-color: aqua;
+}
+
+.data-ring-create-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

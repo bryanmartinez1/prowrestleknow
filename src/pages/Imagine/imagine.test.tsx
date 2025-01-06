@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Imagine from "./Imagine";
 
@@ -27,6 +27,9 @@ describe("Imagine", () => {
 
     expect(screen.getByTestId("imagine")).toBeInTheDocument();
     expect(screen.getByTestId("sidebar")).toBeInTheDocument();
-    expect(screen.getAllByTestId("image_button").length).toBe(8);
+    expect(
+      within(screen.getByTestId("sidebar")).getAllByTestId("image_button")
+        .length
+    ).toBe(8);
   });
 });

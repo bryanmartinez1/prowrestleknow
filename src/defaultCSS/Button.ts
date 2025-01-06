@@ -63,3 +63,24 @@ export const submitButton = {
   height: "100%",
   borderRadius: "5%",
 };
+
+export const createButton = {
+  borderRadius: "5px",
+  hoverBackgroundColor: "#3ec4e0",
+  width: "30px",
+  height: "30px",
+  fontFamily: "Lexend",
+  backgroundColor: "#45daf9",
+};
+
+export const createButtons = {
+  fontSize: "16px",
+  border: "none",
+  margin: "10px",
+  padding: "10px",
+  height: "100%",
+  borderRadius: "10px",
+  backgroundColor: "#45daf9",
+  hoverBackgroundColor: "#3ec4e0",
+  fontFamily: "Lexend",
+};

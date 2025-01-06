@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./visualize.css";
 import Sidebar from "../../components/sidebar/Sidebar";
 import sidebar_options from "./options.json";
@@ -8,6 +8,8 @@ import pie_chart from "../../assets/icons/visualize/pie-chart.svg";
 import timeline from "../../assets/icons/visualize/activity.svg";
 
 export default function Visualize() {
+  const [visualizeSelected, setVisualizeSelected] = useState<string>("Table");
+
   const options_images = [
     table,
     bar_chart,
@@ -18,7 +20,13 @@ export default function Visualize() {
   ];
   return (
     <div className="visualize-page" data-testid="visualize">
-      <Sidebar options={sidebar_options} image_array={options_images} />
+      <Sidebar
+        selected={visualizeSelected}
+        setSelected={setVisualizeSelected}
+        options={sidebar_options}
+        image_array={options_images}
+      />
+      {visualizeSelected}
     </div>
   );
 }
